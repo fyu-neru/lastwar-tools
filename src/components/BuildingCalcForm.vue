@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <!-- Input Form -->
-    <section>
+  <div class="flex gap-6 items-start">
+    <!-- Left: Input Form -->
+    <section class="w-80 flex-shrink-0">
       <h2 class="text-xl font-semibold mb-4">{{ labels.currentBuildings }}</h2>
       <div v-if="!dataLoaded" class="text-gray-500">Loading building data...</div>
       <div v-else>
@@ -158,51 +158,47 @@
       </div>
     </section>
 
-    <!-- Results -->
-    <section v-if="calculated" class="mt-8">
-      <h2 class="text-xl font-semibold mb-4">{{ labels.results }}</h2>
-
-      <div v-if="steps.length === 0" class="text-gray-500">{{ labels.noResults }}</div>
+    <!-- Right: Results -->
+    <section class="flex-1 min-w-0">
+      <div v-if="!calculated" class="text-gray-400 italic text-sm mt-8">{{ labels.noResults }}</div>
       <div v-else>
-        <!-- Summary -->
-        <div class="mb-6 p-4 bg-gray-50 border border-gray-200 rounded">
-          <h3 class="font-semibold mb-2">{{ labels.resourceOptimized }}</h3>
-          <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 text-sm">
-            <!-- Time display: dual column if position active -->
-            <div v-if="hasPosition" class="col-span-2 sm:col-span-3 grid grid-cols-2 gap-2">
-              <div>
-                <span class="text-gray-600">{{ labels.withPosition }}: </span>
-                <span class="font-medium text-green-700">{{ formatTime(totalTimeWithPosition) }}</span>
-              </div>
-              <div>
-                <span class="text-gray-600">{{ labels.withoutPosition }}: </span>
-                <span class="font-medium text-gray-700">{{ formatTime(totalTimeWithoutPosition) }}</span>
-              </div>
+        <h2 class="text-xl font-semibold mb-4">{{ labels.results }}</h2>
+
+        <!-- Summary Cards -->
+        <div class="mb-4 grid grid-cols-2 sm:grid-cols-3 gap-3">
+          <div v-if="hasPosition" class="col-span-2 sm:col-span-3 grid grid-cols-2 gap-3">
+            <div class="p-3 bg-green-50 border border-green-200 rounded text-sm">
+              <div class="text-gray-500 text-xs mb-1">{{ labels.withPosition }}</div>
+              <div class="font-semibold text-green-700 text-base">{{ formatTime(totalTimeWithPosition) }}</div>
             </div>
-            <div v-else>
-              <span class="text-gray-600">{{ labels.totalTime }}: </span>
-              <span class="font-medium">{{ formatTime(totalTime) }}</span>
+            <div class="p-3 bg-gray-50 border border-gray-200 rounded text-sm">
+              <div class="text-gray-500 text-xs mb-1">{{ labels.withoutPosition }}</div>
+              <div class="font-semibold text-gray-700 text-base">{{ formatTime(totalTimeWithoutPosition) }}</div>
             </div>
-            <div>
-              <span class="text-gray-600">{{ labels.electricity }}: </span>
-              <span class="font-medium">{{ totalResources.electricity.toLocaleString() }}</span>
-            </div>
-            <div>
-              <span class="text-gray-600">{{ labels.water }}: </span>
-              <span class="font-medium">{{ totalResources.water.toLocaleString() }}</span>
-            </div>
-            <div>
-              <span class="text-gray-600">{{ labels.oil }}: </span>
-              <span class="font-medium">{{ totalResources.oil.toLocaleString() }}</span>
-            </div>
-            <div>
-              <span class="text-gray-600">{{ labels.iron }}: </span>
-              <span class="font-medium">{{ totalResources.iron.toLocaleString() }}</span>
-            </div>
-            <div v-if="gemCost > 0" class="col-span-2 sm:col-span-3">
-              <span class="text-gray-600">{{ labels.queueRentalCost }}: </span>
-              <span class="font-medium text-yellow-600">~{{ gemCost }} 💎</span>
-            </div>
+          </div>
+          <div v-else class="p-3 bg-blue-50 border border-blue-200 rounded text-sm">
+            <div class="text-gray-500 text-xs mb-1">{{ labels.totalTime }}</div>
+            <div class="font-semibold text-blue-700 text-base">{{ formatTime(totalTime) }}</div>
+          </div>
+          <div class="p-3 bg-gray-50 border border-gray-200 rounded text-sm">
+            <div class="text-gray-500 text-xs mb-1">{{ labels.electricity }}</div>
+            <div class="font-semibold">{{ totalResources.electricity.toLocaleString() }}</div>
+          </div>
+          <div class="p-3 bg-gray-50 border border-gray-200 rounded text-sm">
+            <div class="text-gray-500 text-xs mb-1">{{ labels.water }}</div>
+            <div class="font-semibold">{{ totalResources.water.toLocaleString() }}</div>
+          </div>
+          <div class="p-3 bg-gray-50 border border-gray-200 rounded text-sm">
+            <div class="text-gray-500 text-xs mb-1">{{ labels.oil }}</div>
+            <div class="font-semibold">{{ totalResources.oil.toLocaleString() }}</div>
+          </div>
+          <div class="p-3 bg-gray-50 border border-gray-200 rounded text-sm">
+            <div class="text-gray-500 text-xs mb-1">{{ labels.iron }}</div>
+            <div class="font-semibold">{{ totalResources.iron.toLocaleString() }}</div>
+          </div>
+          <div v-if="gemCost > 0" class="p-3 bg-yellow-50 border border-yellow-200 rounded text-sm">
+            <div class="text-gray-500 text-xs mb-1">{{ labels.queueRentalCost }}</div>
+            <div class="font-semibold text-yellow-700">~{{ gemCost }} 💎</div>
           </div>
         </div>
 
@@ -222,10 +218,10 @@
           <button
             v-for="q in displayQueues"
             :key="q"
-            @click="activeQueue = q"
+            @click="activeQueue = q - 1"
             :class="[
               'px-3 py-1 rounded text-sm font-medium border',
-              activeQueue === q
+              activeQueue === q - 1
                 ? 'bg-blue-600 text-white border-blue-600'
                 : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-50'
             ]"
@@ -234,33 +230,54 @@
           </button>
         </div>
 
-        <!-- Step List -->
-        <h3 class="font-semibold mb-2">{{ labels.timeOptimized }}</h3>
-        <ol class="space-y-1">
-          <li
-            v-for="(step, index) in filteredSteps"
-            :key="index"
-            class="text-sm p-2 border-b border-gray-100 flex flex-wrap gap-x-3 gap-y-1"
-          >
-            <span class="font-medium text-gray-700">{{ labels.step }} {{ step._originalIndex + 1 }}:</span>
-            <span>{{ displayName(step.building) }}</span>
-            <span class="text-gray-500">→</span>
-            <span>{{ labels.upgradeTo }} {{ step.toLevel }}</span>
-            <span class="text-gray-400">|</span>
-            <span class="text-purple-600 font-medium">{{ labels.queue }}{{ step.queue }}</span>
-            <span class="text-gray-400">|</span>
-            <span class="text-gray-500 text-xs">{{ labels.starts }}: {{ formatTime(step.startTime) }}</span>
-            <span class="text-gray-400">|</span>
-            <span class="text-blue-600">{{ formatTime(step.endTime - step.startTime) }}</span>
-            <span class="text-gray-400">|</span>
-            <span class="text-gray-600 text-xs">
-              E:{{ step.costs.electricity.toLocaleString() }}
-              W:{{ step.costs.water.toLocaleString() }}
-              O:{{ step.costs.oil.toLocaleString() }}
-              I:{{ step.costs.iron.toLocaleString() }}
-            </span>
-          </li>
-        </ol>
+        <!-- Step Table -->
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm border-collapse">
+            <thead>
+              <tr class="bg-gray-100 text-gray-600 text-xs uppercase tracking-wide">
+                <th class="px-3 py-2 text-left">#</th>
+                <th class="px-3 py-2 text-left">{{ labels.building }}</th>
+                <th class="px-3 py-2 text-center">Lv</th>
+                <th class="px-3 py-2 text-center">{{ labels.queue }}</th>
+                <th class="px-3 py-2 text-right">{{ labels.starts }}</th>
+                <th class="px-3 py-2 text-right">{{ labels.duration }}</th>
+                <th class="px-3 py-2 text-right">⚡</th>
+                <th class="px-3 py-2 text-right">💧</th>
+                <th class="px-3 py-2 text-right">🛢</th>
+                <th class="px-3 py-2 text-right">⚙</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr
+                v-for="(step, index) in filteredSteps"
+                :key="index"
+                :class="[
+                  'border-b border-gray-100',
+                  step.queue === 0 ? 'bg-blue-50' : step.queue === 1 ? 'bg-purple-50' : step.queue === 2 ? 'bg-green-50' : 'bg-orange-50'
+                ]"
+              >
+                <td class="px-3 py-1.5 text-gray-500 text-xs">{{ step._originalIndex + 1 }}</td>
+                <td class="px-3 py-1.5 font-medium">{{ displayName(step.building) }}</td>
+                <td class="px-3 py-1.5 text-center text-gray-700">{{ step.toLevel }}</td>
+                <td class="px-3 py-1.5 text-center">
+                  <span :class="[
+                    'px-1.5 py-0.5 rounded text-xs font-semibold',
+                    step.queue === 0 ? 'bg-blue-200 text-blue-800' :
+                    step.queue === 1 ? 'bg-purple-200 text-purple-800' :
+                    step.queue === 2 ? 'bg-green-200 text-green-800' :
+                    'bg-orange-200 text-orange-800'
+                  ]">Q{{ step.queue + 1 }}</span>
+                </td>
+                <td class="px-3 py-1.5 text-right text-gray-500 text-xs">{{ formatTime(step.startTime) }}</td>
+                <td class="px-3 py-1.5 text-right text-blue-600 font-medium">{{ formatTime(step.endTime - step.startTime) }}</td>
+                <td class="px-3 py-1.5 text-right text-gray-600 text-xs">{{ step.costs.electricity ? step.costs.electricity.toLocaleString() : '-' }}</td>
+                <td class="px-3 py-1.5 text-right text-gray-600 text-xs">{{ step.costs.water ? step.costs.water.toLocaleString() : '-' }}</td>
+                <td class="px-3 py-1.5 text-right text-gray-600 text-xs">{{ step.costs.oil ? step.costs.oil.toLocaleString() : '-' }}</td>
+                <td class="px-3 py-1.5 text-right text-gray-600 text-xs">{{ step.costs.iron ? step.costs.iron.toLocaleString() : '-' }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
         <!-- Dependency Tree -->
         <details class="mt-6 border border-gray-200 rounded">
@@ -279,9 +296,6 @@
       </div>
     </section>
 
-    <div v-else-if="dataLoaded" class="mt-8 text-gray-400 italic text-sm">
-      {{ labels.noResults }}
-    </div>
   </div>
 </template>
 
@@ -396,7 +410,9 @@ const labelMap = {
     withoutPosition: 'Without Position',
     queue: 'Q',
     allQueues: 'All Queues',
-    starts: 'starts',
+    starts: 'Start',
+    duration: 'Duration',
+    building: 'Building',
     dependencyTree: 'Dependency Tree',
     alreadyMet: 'already met',
     queueRentalCost: 'Est. 2nd Queue Gems',
@@ -436,7 +452,9 @@ const labelMap = {
     withoutPosition: '無官職',
     queue: 'Q',
     allQueues: '全部佇列',
-    starts: '開始',
+    starts: '開始時間',
+    duration: '耗時',
+    building: '建築',
     dependencyTree: '依賴樹',
     alreadyMet: '已滿足',
     queueRentalCost: '2隊租用寶石',
