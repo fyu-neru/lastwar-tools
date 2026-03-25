@@ -10,7 +10,8 @@ const translations = { en, zh } as const;
 export type Lang = keyof typeof translations;
 
 export function getLang(url: URL): Lang {
-  const [, first] = url.pathname.split('/');
+  const pathname = url.pathname.replace('/lastwar-tools', '');
+  const [, first] = pathname.split('/');
   if (first === 'zh') return 'zh';
   return 'en';
 }
