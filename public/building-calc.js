@@ -65,12 +65,18 @@
         // Now add this upgrade step (if not already added by a recursive call)
         if (!added.has(lvlKey)) {
           added.add(lvlKey);
+          const rawCosts = levelDef.costs || {};
           result.push({
             building,
             fromLevel: lvl - 1,
             toLevel: lvl,
             buildTime: levelDef.buildTime || 0,
-            costs: levelDef.costs || {},
+            costs: {
+              electricity: rawCosts.electricity || 0,
+              water: rawCosts.water || 0,
+              oil: rawCosts.oil || 0,
+              iron: rawCosts.iron || 0,
+            },
           });
         }
       }

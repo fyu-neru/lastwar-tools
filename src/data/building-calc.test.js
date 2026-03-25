@@ -90,6 +90,17 @@ test('Test 2: resolveUpgrades HQ3 with partial current levels', () => {
   assert.ok(buildingLevels.includes('Headquarters:3'), 'Must include HQ:3');
 });
 
+test('resolveUpgrades: every upgrade costs object has all four resource keys', () => {
+  const upgrades = resolveUpgrades(buildingData, 'Headquarters', 35, {});
+  for (const u of upgrades) {
+    const c = u.costs;
+    assert.ok('electricity' in c, `${u.building}:${u.toLevel} missing electricity`);
+    assert.ok('water' in c, `${u.building}:${u.toLevel} missing water`);
+    assert.ok('oil' in c, `${u.building}:${u.toLevel} missing oil`);
+    assert.ok('iron' in c, `${u.building}:${u.toLevel} missing iron`);
+  }
+});
+
 test('Test 3: sumResources from HQ3 scratch', () => {
   const upgrades = resolveUpgrades(buildingData, 'Headquarters', 3, {});
   const totals = sumResources(upgrades);

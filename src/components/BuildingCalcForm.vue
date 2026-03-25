@@ -254,10 +254,10 @@
             <span class="text-blue-600">{{ formatTime(step.endTime - step.startTime) }}</span>
             <span class="text-gray-400">|</span>
             <span class="text-gray-600 text-xs">
-              E:{{ (step.costs.electricity || 0).toLocaleString() }}
-              W:{{ (step.costs.water || 0).toLocaleString() }}
-              O:{{ (step.costs.oil || 0).toLocaleString() }}
-              I:{{ (step.costs.iron || 0).toLocaleString() }}
+              E:{{ step.costs.electricity.toLocaleString() }}
+              W:{{ step.costs.water.toLocaleString() }}
+              O:{{ step.costs.oil.toLocaleString() }}
+              I:{{ step.costs.iron.toLocaleString() }}
             </span>
           </li>
         </ol>
