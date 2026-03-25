@@ -51,3 +51,19 @@ test('buildDependencyTree: no infinite recursion (returns cleanly)', () => {
   assert.ok(tree, 'tree should be defined');
   assert.ok(Array.isArray(tree.children), 'children should be array');
 });
+
+test('buildDependencyTree: no circular references in resulting tree (HQ35)', () => {
+  const tree = buildDependencyTree(buildingData, 'Headquarters', 35, {});
+  // Walk the entire tree; if there's a circular reference this will throw/hang
+  const visited = new Set();
+  function walk(node, depth) {
+    assert.ok(depth < 500, `tree depth exceeded 500 — likely circular reference at ${node.building}:${node.level}`);
+    const key = `${node.building}:${node.level}:${depth}`;
+    if (visited.has(key)) return; // same node at same depth is fine (DAG shared node)
+    visited.add(key);
+    for (const child of node.children) {
+      walk(child, depth + 1);
+    }
+  }
+  walk(tree, 0);
+});

@@ -184,19 +184,28 @@
   function buildDependencyTree(buildingData, targetBuilding, targetLevel, currentLevels) {
     // Cache: "building:level" -> node (avoids exponential blowup in DAG)
     const cache = new Map();
+    // Tracks nodes currently being constructed (detect cycles in call stack)
+    const visiting = new Set();
 
     function buildNode(building, level) {
       const cacheKey = `${building}:${level}`;
-      if (cache.has(cacheKey)) return cache.get(cacheKey);
+      if (cache.has(cacheKey)) {
+        // If we're currently building this node, return a stub to break the cycle
+        if (visiting.has(cacheKey)) {
+          const inProgress = cache.get(cacheKey);
+          return { building: inProgress.building, level: inProgress.level, met: inProgress.met, children: [] };
+        }
+        return cache.get(cacheKey);
+      }
 
       const currentLevel = (currentLevels && currentLevels[building] != null)
         ? currentLevels[building]
         : 0;
       const met = currentLevel >= level;
 
-      // Insert a placeholder to break cycles
       const node = { building, level, met, children: [] };
       cache.set(cacheKey, node);
+      visiting.add(cacheKey);
 
       const buildingDef = buildingData.buildings[building];
       if (buildingDef) {
@@ -219,6 +228,7 @@
         }
       }
 
+      visiting.delete(cacheKey);
       return node;
     }
 
