@@ -75,6 +75,15 @@
                 <option v-for="v in 16" :key="v-1" :value="v-1">{{ v-1 }}</option>
               </select>
             </div>
+            <div class="flex flex-col gap-1">
+              <label class="text-sm text-gray-600">{{ labels.vipPoints }}</label>
+              <input
+                type="number"
+                v-model.number="vipPoints"
+                min="0"
+                class="border border-gray-300 rounded px-2 py-1 text-sm w-32"
+              />
+            </div>
             <div class="flex items-center gap-2 pt-4">
               <input
                 type="checkbox"
@@ -303,11 +312,10 @@ const groupNames = {
   zh: { core: '核心', military: '軍事', defense: '防禦', economy: '經濟', support: '支援' },
 };
 
-const VIP_BUILD_SPEED = {
-  0: 0, 1: 2, 2: 4, 3: 6, 4: 8, 5: 10,
-  6: 12, 7: 14, 8: 17, 9: 20, 10: 23,
-  11: 26, 12: 29, 13: 33, 14: 37, 15: 40,
-};
+// Use correct VIP build speed table from game data (loaded from building-calc.js at runtime)
+const VIP_BUILD_SPEED = (typeof window !== 'undefined' && window.BuildingCalc)
+  ? window.BuildingCalc.VIP_BUILD_SPEED_TABLE
+  : { 0: 0, 1: 0, 2: 0, 3: 10, 4: 10, 5: 20, 6: 20, 7: 30, 8: 30, 9: 40, 10: 40, 11: 50, 12: 50, 13: 50, 14: 50, 15: 50 };
 
 const labelMap = {
   en: {
@@ -331,6 +339,7 @@ const labelMap = {
     settings: 'Settings',
     buildQueues: 'Build Queues',
     vipLevel: 'VIP Level',
+    vipPoints: 'Current VIP Points',
     officialPosition: 'Has Official Position Bonus',
     withPosition: 'With Position',
     withoutPosition: 'Without Position',
@@ -362,6 +371,7 @@ const labelMap = {
     settings: '設置',
     buildQueues: '建造佇列',
     vipLevel: 'VIP 等級',
+    vipPoints: '目前VIP點數',
     officialPosition: '有官職加成',
     withPosition: '有官職',
     withoutPosition: '無官職',
@@ -393,6 +403,7 @@ const simulatedQueues = ref(2);
 // Settings
 const numQueues = ref(2);
 const vipLevel = ref(0);
+const vipPoints = ref(0);
 const hasPosition = ref(false);
 const activeQueue = ref(null);
 
@@ -496,22 +507,38 @@ function calculate() {
 
   const summary = window.BuildingCalc.sumResources(resolved);
 
-  const speedWithPosition = vipSpeed.value + POSITION_SPEED_BONUS;
-  const speedWithoutPosition = vipSpeed.value;
-  const currentSpeed = hasPosition.value ? speedWithPosition : speedWithoutPosition;
+  // Use VIP progression simulation for the main schedule
+  const vipState = {
+    startingVipPoints: vipPoints.value,
+    startingVipLevel: vipLevel.value,
+    hasPosition: hasPosition.value,
+  };
+  const simQueues = Math.max(numQueues.value, 2);
+  const vipResult = window.BuildingCalc.scheduleWithVipProgression(resolved, simQueues, vipState);
+  const scheduled = vipResult.scheduled;
 
-  // Schedule with current settings (uses scheduleWithGemCost for 1-queue gem cost annotation)
-  const { scheduled, gemCost: cost, simulatedQueues: simQ } = window.BuildingCalc.scheduleWithGemCost(resolved, numQueues.value, currentSpeed);
+  // Gem cost for 2nd queue when numQueues=1
+  let cost = 0;
+  if (numQueues.value === 1) {
+    const GEM_RENTAL_BLOCK_SECONDS = 7200;
+    const GEM_COST_PER_BLOCK = 200;
+    const queue1Tasks = scheduled.filter(s => s.queue === 1);
+    if (queue1Tasks.length > 0) {
+      const maxQueue1Time = Math.max(...queue1Tasks.map(s => s.endTime));
+      const rentalBlocks = Math.ceil(maxQueue1Time / GEM_RENTAL_BLOCK_SECONDS);
+      cost = rentalBlocks * GEM_COST_PER_BLOCK;
+    }
+  }
   gemCost.value = cost;
-  simulatedQueues.value = simQ;
+  simulatedQueues.value = simQueues;
   const totalT = window.BuildingCalc.getTotalTime(scheduled);
 
   // For dual-column display when position is active
   if (hasPosition.value) {
-    const resultWithPos = window.BuildingCalc.scheduleWithGemCost(resolved, numQueues.value, speedWithPosition);
-    const resultWithoutPos = window.BuildingCalc.scheduleWithGemCost(resolved, numQueues.value, speedWithoutPosition);
-    totalTimeWithPosition.value = window.BuildingCalc.getTotalTime(resultWithPos.scheduled);
-    totalTimeWithoutPosition.value = window.BuildingCalc.getTotalTime(resultWithoutPos.scheduled);
+    const vipWithPos = window.BuildingCalc.scheduleWithVipProgression(resolved, simQueues, { ...vipState, hasPosition: true });
+    const vipWithoutPos = window.BuildingCalc.scheduleWithVipProgression(resolved, simQueues, { ...vipState, hasPosition: false });
+    totalTimeWithPosition.value = window.BuildingCalc.getTotalTime(vipWithPos.scheduled);
+    totalTimeWithoutPosition.value = window.BuildingCalc.getTotalTime(vipWithoutPos.scheduled);
   }
 
   // Annotate steps with original index for display

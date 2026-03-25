@@ -278,5 +278,94 @@
     return { scheduled, simulatedQueues, gemCost };
   }
 
-  window.BuildingCalc = { resolveUpgrades, sumResources, scheduleUpgrades, getTotalTime, buildDependencyTree, scheduleWithGemCost, getUnlockedSlots };
+  // Correct VIP build speed bonuses from game data (effect 50129, cumulative %)
+  const VIP_BUILD_SPEED_TABLE = {
+    0: 0, 1: 0, 2: 0, 3: 10, 4: 10,
+    5: 20, 6: 20, 7: 30, 8: 30,
+    9: 40, 10: 40, 11: 50, 12: 50,
+    13: 50, 14: 50, 15: 50,
+  };
+
+  // Cumulative VIP points required to reach each VIP level (index = level - 1)
+  const VIP_THRESHOLDS = [
+    0, 500, 1000, 5000, 10000, 15000, 30000, 50000,
+    100000, 150000, 250000, 500000, 1000000, 2000000, 3000000,
+  ];
+
+  /**
+   * Get VIP level from cumulative points.
+   * @param {number} points - total cumulative VIP points
+   * @returns {number} VIP level (1-15)
+   */
+  function getVipLevel(points) {
+    let level = 1;
+    for (let i = 0; i < VIP_THRESHOLDS.length; i++) {
+      if (points >= VIP_THRESHOLDS[i]) level = i + 1;
+      else break;
+    }
+    return Math.min(level, 15);
+  }
+
+  /**
+   * Schedule upgrades with VIP level-up simulation.
+   * VIP exp = buildTime seconds. Speed bonus re-evaluated at each task's start.
+   *
+   * @param {Array} upgrades - from resolveUpgrades()
+   * @param {number} numQueues - number of queues
+   * @param {Object} vipState - { startingVipPoints, startingVipLevel, hasPosition }
+   * @returns {{ scheduled: Array, finalVipPoints: number, finalVipLevel: number }}
+   */
+  function scheduleWithVipProgression(upgrades, numQueues, vipState) {
+    const { startingVipPoints = 0, hasPosition = false } = vipState;
+    const POSITION_BONUS = hasPosition ? 20 : 0;
+
+    const queueFreeAt = new Array(numQueues).fill(0);
+    let cumulativeVipPoints = startingVipPoints;
+    const scheduled = [];
+
+    for (let step = 0; step < upgrades.length; step++) {
+      const upgrade = upgrades[step];
+
+      // Find earliest available queue
+      let earliestQueue = 0;
+      for (let i = 1; i < numQueues; i++) {
+        if (queueFreeAt[i] < queueFreeAt[earliestQueue]) earliestQueue = i;
+      }
+
+      // Apply speed bonus at THIS task's start (based on current VIP level)
+      const currentVipLevel = getVipLevel(cumulativeVipPoints);
+      const speedBonus = (VIP_BUILD_SPEED_TABLE[currentVipLevel] || 0) + POSITION_BONUS;
+      const speedDivisor = 1 + speedBonus / 100;
+      const actualBuildTime = Math.round(upgrade.buildTime / speedDivisor);
+
+      const startTime = queueFreeAt[earliestQueue];
+      const endTime = startTime + actualBuildTime;
+      queueFreeAt[earliestQueue] = endTime;
+
+      // Accumulate VIP exp from original (unmodified) buildTime
+      cumulativeVipPoints += upgrade.buildTime;
+
+      scheduled.push({
+        step,
+        building: upgrade.building,
+        fromLevel: upgrade.fromLevel,
+        toLevel: upgrade.toLevel,
+        queue: earliestQueue,
+        startTime,
+        endTime,
+        buildTime: actualBuildTime,
+        costs: upgrade.costs || {},
+        vipLevelAtStart: currentVipLevel,
+        speedBonusPct: speedBonus,
+      });
+    }
+
+    return {
+      scheduled,
+      finalVipPoints: cumulativeVipPoints,
+      finalVipLevel: getVipLevel(cumulativeVipPoints),
+    };
+  }
+
+  window.BuildingCalc = { resolveUpgrades, sumResources, scheduleUpgrades, getTotalTime, buildDependencyTree, scheduleWithGemCost, getUnlockedSlots, getVipLevel, scheduleWithVipProgression, VIP_BUILD_SPEED_TABLE };
 })();
