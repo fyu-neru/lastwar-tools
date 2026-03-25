@@ -94,5 +94,80 @@
     return totals;
   }
 
-  window.BuildingCalc = { resolveUpgrades, sumResources };
+  /**
+   * Schedule upgrades across multiple build queues.
+   * Uses greedy approach: assign each upgrade to the queue that finishes earliest.
+   *
+   * @param {Array} upgrades - from resolveUpgrades(), in topological order
+   * @param {number} numQueues - number of build queues (1-4)
+   * @param {number} speedBonusPct - build speed bonus % (0 = no bonus, 50 = 50% faster)
+   * @returns {Array<{
+   *   step: number,
+   *   building: string,
+   *   fromLevel: number,
+   *   toLevel: number,
+   *   queue: number,
+   *   startTime: number,
+   *   endTime: number,
+   *   buildTime: number,
+   *   costs: Object,
+   * }>}
+   */
+  function scheduleUpgrades(upgrades, numQueues, speedBonusPct = 0) {
+    // Initialize queue finish times
+    const queueFreeAt = new Array(numQueues).fill(0);
+    const scheduled = [];
+
+    for (let step = 0; step < upgrades.length; step++) {
+      const upgrade = upgrades[step];
+
+      // Find the queue that will be free earliest
+      let earliestQueue = 0;
+      let earliestTime = queueFreeAt[0];
+      for (let i = 1; i < numQueues; i++) {
+        if (queueFreeAt[i] < earliestTime) {
+          earliestTime = queueFreeAt[i];
+          earliestQueue = i;
+        }
+      }
+
+      // Calculate actual build time after speed bonus
+      const actualBuildTime = Math.round(
+        upgrade.buildTime / (1 + speedBonusPct / 100)
+      );
+
+      const startTime = queueFreeAt[earliestQueue];
+      const endTime = startTime + actualBuildTime;
+
+      // Update queue free time
+      queueFreeAt[earliestQueue] = endTime;
+
+      // Add to scheduled list
+      scheduled.push({
+        step,
+        building: upgrade.building,
+        fromLevel: upgrade.fromLevel,
+        toLevel: upgrade.toLevel,
+        queue: earliestQueue,
+        startTime,
+        endTime,
+        buildTime: actualBuildTime,
+        costs: upgrade.costs || {},
+      });
+    }
+
+    return scheduled;
+  }
+
+  /**
+   * Get total time for a set of scheduled upgrades.
+   * @param {Array} scheduledUpgrades - from scheduleUpgrades()
+   * @returns {number} total time in seconds (endTime of last task)
+   */
+  function getTotalTime(scheduledUpgrades) {
+    if (scheduledUpgrades.length === 0) return 0;
+    return scheduledUpgrades[scheduledUpgrades.length - 1].endTime;
+  }
+
+  window.BuildingCalc = { resolveUpgrades, sumResources, scheduleUpgrades, getTotalTime };
 })();
