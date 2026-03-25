@@ -245,7 +245,7 @@
             <span class="font-medium text-gray-700">{{ labels.step }} {{ step._originalIndex + 1 }}:</span>
             <span>{{ displayName(step.building) }}</span>
             <span class="text-gray-500">→</span>
-            <span>{{ labels.upgradeTo }} {{ step.level }}</span>
+            <span>{{ labels.upgradeTo }} {{ step.toLevel }}</span>
             <span class="text-gray-400">|</span>
             <span class="text-purple-600 font-medium">{{ labels.queue }}{{ step.queue }}</span>
             <span class="text-gray-400">|</span>
@@ -297,17 +297,19 @@ const TARGET_LEVEL = 35;
 const POSITION_SPEED_BONUS = 20;
 const DATA_URL = '/lastwar-tools/building-data.json';
 
-// Recursive tree node component
+// Recursive tree node component (depth-limited to avoid exponential rendering)
+const MAX_TREE_DEPTH = 4;
 const TreeNode = defineComponent({
   name: 'TreeNode',
   props: {
     node: { type: Object, required: true },
     displayName: { type: Function, required: true },
     alreadyMetLabel: { type: String, default: 'already met' },
+    depth: { type: Number, default: 0 },
   },
   setup(props) {
     return () => {
-      const { node, displayName, alreadyMetLabel } = props;
+      const { node, displayName, alreadyMetLabel, depth } = props;
       const label = h('div', {
         class: node.met ? 'text-gray-400' : 'text-gray-800',
       }, [
@@ -317,17 +319,23 @@ const TreeNode = defineComponent({
           : null,
       ]);
 
-      const children = node.children && node.children.length
-        ? h('div', { class: 'ml-4 border-l border-gray-200 pl-2' },
+      let children = null;
+      if (node.children && node.children.length) {
+        if (depth >= MAX_TREE_DEPTH) {
+          children = h('div', { class: 'ml-4 text-xs text-gray-400' }, '...');
+        } else {
+          children = h('div', { class: 'ml-4 border-l border-gray-200 pl-2' },
             node.children.map(child =>
               h(TreeNode, {
                 node: child,
                 displayName,
                 alreadyMetLabel,
+                depth: depth + 1,
               })
             )
-          )
-        : null;
+          );
+        }
+      }
 
       return h('div', { class: 'tree-node ml-4' }, [label, children]);
     };

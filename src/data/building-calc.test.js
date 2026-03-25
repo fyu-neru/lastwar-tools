@@ -101,6 +101,15 @@ test('resolveUpgrades: every upgrade costs object has all four resource keys', (
   }
 });
 
+test('resolveUpgrades: each upgrade has toLevel (not level) field', () => {
+  const upgrades = resolveUpgrades(buildingData, 'Headquarters', 3, {});
+  for (const u of upgrades) {
+    assert.ok('toLevel' in u, `upgrade missing toLevel: ${JSON.stringify(u)}`);
+    assert.ok('fromLevel' in u, `upgrade missing fromLevel: ${JSON.stringify(u)}`);
+    assert.ok(!('level' in u), `upgrade should not have 'level' field: ${JSON.stringify(u)}`);
+  }
+});
+
 test('Test 3: sumResources from HQ3 scratch', () => {
   const upgrades = resolveUpgrades(buildingData, 'Headquarters', 3, {});
   const totals = sumResources(upgrades);
