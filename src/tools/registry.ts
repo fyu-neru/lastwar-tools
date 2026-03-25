@@ -15,11 +15,10 @@ export interface ToolMeta {
 }
 
 export const tools: ToolMeta[] = [
-  // Add tools here. Example:
-  // {
-  //   id: 'damage-calc',
-  //   titleKey: 'tools.damageCalc.title',
-  //   descKey: 'tools.damageCalc.desc',
-  //   status: 'available',
-  // },
+  {
+    id: 'building-calc',
+    titleKey: 'tools.buildingCalc.title',
+    descKey: 'tools.buildingCalc.desc',
+    status: 'available',
+  },
 ];

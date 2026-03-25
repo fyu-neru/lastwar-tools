@@ -1,0 +1,13 @@
+---
+import Base from '../../../layouts/Base.astro';
+import { getLang, t } from '../../../i18n/utils';
+import BuildingCalcForm from '../../../components/BuildingCalcForm.vue';
+
+const lang = getLang(Astro.url);
+---
+
+<Base title={t(lang, 'tools.buildingCalc.pageTitle')}>
+  <h1 class="text-2xl font-bold mb-6">{t(lang, 'tools.buildingCalc.pageTitle')}</h1>
+  <BuildingCalcForm lang={lang} client:load />
+  <script src="/lastwar-tools/building-calc.js" is:inline></script>
+</Base>
