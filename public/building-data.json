@@ -1,0 +1,6143 @@
+{
+  "buildings": {
+    "Headquarters": {
+      "nameZh": "總部",
+      "levels": {
+        "1": {
+          "buildTime": 900,
+          "costs": {
+            "electricity": 1,
+            "water": 6,
+            "oil": 10,
+            "iron": 13
+          },
+          "prerequisites": [
+            {
+              "building": "Drill Ground",
+              "level": 1
+            },
+            {
+              "building": "1st Squad",
+              "level": 1
+            }
+          ]
+        },
+        "2": {
+          "buildTime": 1800,
+          "costs": {
+            "electricity": 1,
+            "water": 6,
+            "oil": 10,
+            "iron": 13
+          },
+          "prerequisites": [
+            {
+              "building": "Wall",
+              "level": 2
+            },
+            {
+              "building": "Recon Plane",
+              "level": 1
+            }
+          ]
+        },
+        "3": {
+          "buildTime": 2700,
+          "costs": {
+            "electricity": 1,
+            "water": 6,
+            "oil": 10,
+            "iron": 13
+          },
+          "prerequisites": [
+            {
+              "building": "Barracks",
+              "level": 3
+            },
+            {
+              "building": "Drill Ground",
+              "level": 3
+            }
+          ]
+        },
+        "4": {
+          "buildTime": 3600,
+          "costs": {
+            "electricity": 1,
+            "water": 6,
+            "oil": 10,
+            "iron": 13
+          },
+          "prerequisites": [
+            {
+              "building": "Wall",
+              "level": 4
+            },
+            {
+              "building": "Barracks",
+              "level": 4
+            }
+          ]
+        },
+        "5": {
+          "buildTime": 4500,
+          "costs": {
+            "electricity": 1,
+            "water": 6,
+            "oil": 10,
+            "iron": 13
+          },
+          "prerequisites": [
+            {
+              "building": "Wall",
+              "level": 5
+            },
+            {
+              "building": "Drill Ground",
+              "level": 5
+            }
+          ]
+        },
+        "6": {
+          "buildTime": 5400,
+          "costs": {
+            "electricity": 1,
+            "water": 6,
+            "oil": 10,
+            "iron": 13
+          },
+          "prerequisites": [
+            {
+              "building": "Wall",
+              "level": 6
+            },
+            {
+              "building": "Tank Center",
+              "level": 6
+            }
+          ]
+        },
+        "7": {
+          "buildTime": 6300,
+          "costs": {
+            "electricity": 1,
+            "water": 6,
+            "oil": 10,
+            "iron": 13
+          },
+          "prerequisites": [
+            {
+              "building": "1st Tech Center",
+              "level": 7
+            },
+            {
+              "building": "Alliance Support Hub",
+              "level": 7
+            }
+          ]
+        },
+        "8": {
+          "buildTime": 7200,
+          "costs": {
+            "electricity": 1,
+            "water": 6,
+            "oil": 10,
+            "iron": 13
+          },
+          "prerequisites": [
+            {
+              "building": "1st Tech Center",
+              "level": 8
+            },
+            {
+              "building": "Tank Center",
+              "level": 8
+            }
+          ]
+        },
+        "9": {
+          "buildTime": 8500,
+          "costs": {
+            "electricity": 1,
+            "water": 6,
+            "oil": 10,
+            "iron": 13
+          },
+          "prerequisites": [
+            {
+              "building": "1st Tech Center",
+              "level": 9
+            },
+            {
+              "building": "Hospital",
+              "level": 9
+            }
+          ]
+        },
+        "10": {
+          "buildTime": 9900,
+          "costs": {
+            "electricity": 1,
+            "water": 6,
+            "oil": 10,
+            "iron": 13
+          },
+          "prerequisites": [
+            {
+              "building": "1st Tech Center",
+              "level": 10
+            },
+            {
+              "building": "Wall",
+              "level": 10
+            }
+          ]
+        },
+        "11": {
+          "buildTime": 12100,
+          "costs": {
+            "electricity": 1,
+            "water": 6,
+            "oil": 10,
+            "iron": 13
+          },
+          "prerequisites": [
+            {
+              "building": "1st Tech Center",
+              "level": 11
+            },
+            {
+              "building": "Barracks",
+              "level": 11
+            }
+          ]
+        },
+        "12": {
+          "buildTime": 15000,
+          "costs": {
+            "electricity": 1,
+            "water": 6,
+            "oil": 10,
+            "iron": 13
+          },
+          "prerequisites": [
+            {
+              "building": "1st Tech Center",
+              "level": 12
+            },
+            {
+              "building": "Tank Center",
+              "level": 12
+            }
+          ]
+        },
+        "13": {
+          "buildTime": 18000,
+          "costs": {
+            "electricity": 1,
+            "water": 6,
+            "oil": 10,
+            "iron": 13
+          },
+          "prerequisites": [
+            {
+              "building": "1st Tech Center",
+              "level": 13
+            },
+            {
+              "building": "Drill Ground",
+              "level": 13
+            }
+          ]
+        },
+        "14": {
+          "buildTime": 21600,
+          "costs": {
+            "electricity": 1,
+            "water": 6,
+            "oil": 10,
+            "iron": 13
+          },
+          "prerequisites": [
+            {
+              "building": "1st Tech Center",
+              "level": 14
+            },
+            {
+              "building": "Wall",
+              "level": 14
+            }
+          ]
+        },
+        "15": {
+          "buildTime": 25800,
+          "costs": {
+            "electricity": 1,
+            "water": 6,
+            "oil": 10,
+            "iron": 13
+          },
+          "prerequisites": [
+            {
+              "building": "1st Tech Center",
+              "level": 15
+            },
+            {
+              "building": "Alliance Support Hub",
+              "level": 15
+            }
+          ]
+        },
+        "16": {
+          "buildTime": 31400,
+          "costs": {
+            "electricity": 1,
+            "water": 6,
+            "oil": 10,
+            "iron": 13
+          },
+          "prerequisites": [
+            {
+              "building": "1st Tech Center",
+              "level": 16
+            },
+            {
+              "building": "Tank Center",
+              "level": 16
+            }
+          ]
+        },
+        "17": {
+          "buildTime": 37800,
+          "costs": {
+            "electricity": 1,
+            "water": 6,
+            "oil": 10,
+            "iron": 13
+          },
+          "prerequisites": [
+            {
+              "building": "1st Tech Center",
+              "level": 17
+            },
+            {
+              "building": "Hospital",
+              "level": 17
+            }
+          ]
+        },
+        "18": {
+          "buildTime": 46300,
+          "costs": {
+            "electricity": 1,
+            "water": 6,
+            "oil": 10,
+            "iron": 13
+          },
+          "prerequisites": [
+            {
+              "building": "1st Tech Center",
+              "level": 18
+            },
+            {
+              "building": "Wall",
+              "level": 18
+            }
+          ]
+        },
+        "19": {
+          "buildTime": 55500,
+          "costs": {
+            "electricity": 1,
+            "water": 6,
+            "oil": 10,
+            "iron": 13
+          },
+          "prerequisites": [
+            {
+              "building": "1st Tech Center",
+              "level": 19
+            },
+            {
+              "building": "Barracks",
+              "level": 19
+            }
+          ]
+        },
+        "20": {
+          "buildTime": 67900,
+          "costs": {
+            "electricity": 1,
+            "water": 6,
+            "oil": 10,
+            "iron": 13
+          },
+          "prerequisites": [
+            {
+              "building": "1st Tech Center",
+              "level": 20
+            },
+            {
+              "building": "Tank Center",
+              "level": 20
+            }
+          ]
+        },
+        "21": {
+          "buildTime": 82500,
+          "costs": {
+            "electricity": 1,
+            "water": 6,
+            "oil": 10,
+            "iron": 13
+          },
+          "prerequisites": [
+            {
+              "building": "1st Tech Center",
+              "level": 21
+            },
+            {
+              "building": "Drill Ground",
+              "level": 21
+            }
+          ]
+        },
+        "22": {
+          "buildTime": 99200,
+          "costs": {
+            "electricity": 1,
+            "water": 6,
+            "oil": 10,
+            "iron": 13
+          },
+          "prerequisites": [
+            {
+              "building": "1st Tech Center",
+              "level": 22
+            },
+            {
+              "building": "Wall",
+              "level": 22
+            }
+          ]
+        },
+        "23": {
+          "buildTime": 118000,
+          "costs": {
+            "electricity": 1,
+            "water": 6,
+            "oil": 10,
+            "iron": 13
+          },
+          "prerequisites": [
+            {
+              "building": "1st Tech Center",
+              "level": 23
+            },
+            {
+              "building": "Alliance Support Hub",
+              "level": 23
+            }
+          ]
+        },
+        "24": {
+          "buildTime": 138800,
+          "costs": {
+            "electricity": 1,
+            "water": 6,
+            "oil": 10,
+            "iron": 13
+          },
+          "prerequisites": [
+            {
+              "building": "1st Tech Center",
+              "level": 24
+            },
+            {
+              "building": "Tank Center",
+              "level": 24
+            }
+          ]
+        },
+        "25": {
+          "buildTime": 166000,
+          "costs": {
+            "electricity": 1,
+            "water": 6,
+            "oil": 10,
+            "iron": 13
+          },
+          "prerequisites": [
+            {
+              "building": "1st Tech Center",
+              "level": 25
+            },
+            {
+              "building": "Hospital",
+              "level": 25
+            }
+          ]
+        },
+        "26": {
+          "buildTime": 197900,
+          "costs": {
+            "electricity": 1,
+            "water": 6,
+            "oil": 10,
+            "iron": 13
+          },
+          "prerequisites": [
+            {
+              "building": "1st Tech Center",
+              "level": 26
+            },
+            {
+              "building": "Wall",
+              "level": 26
+            }
+          ]
+        },
+        "27": {
+          "buildTime": 234600,
+          "costs": {
+            "electricity": 1,
+            "water": 6,
+            "oil": 10,
+            "iron": 13
+          },
+          "prerequisites": [
+            {
+              "building": "1st Tech Center",
+              "level": 27
+            },
+            {
+              "building": "Barracks",
+              "level": 27
+            }
+          ]
+        },
+        "28": {
+          "buildTime": 278000,
+          "costs": {
+            "electricity": 1,
+            "water": 6,
+            "oil": 10,
+            "iron": 13
+          },
+          "prerequisites": [
+            {
+              "building": "1st Tech Center",
+              "level": 28
+            },
+            {
+              "building": "Tank Center",
+              "level": 28
+            }
+          ]
+        },
+        "29": {
+          "buildTime": 328500,
+          "costs": {
+            "electricity": 1,
+            "water": 6,
+            "oil": 10,
+            "iron": 13
+          },
+          "prerequisites": [
+            {
+              "building": "1st Tech Center",
+              "level": 29
+            },
+            {
+              "building": "Drill Ground",
+              "level": 29
+            }
+          ]
+        },
+        "30": {
+          "buildTime": 388300,
+          "costs": {
+            "electricity": 1,
+            "water": 6,
+            "oil": 10,
+            "iron": 13
+          },
+          "prerequisites": [
+            {
+              "building": "1st Tech Center",
+              "level": 30
+            },
+            {
+              "building": "Barracks",
+              "level": 30
+            },
+            {
+              "building": "Tank Center",
+              "level": 30
+            }
+          ]
+        },
+        "31": {
+          "buildTime": 452000,
+          "costs": {
+            "electricity": 1,
+            "water": 6,
+            "oil": 10,
+            "iron": 13
+          },
+          "prerequisites": [
+            {
+              "building": "1st Tech Center",
+              "level": 31
+            },
+            {
+              "building": "Barracks",
+              "level": 31
+            },
+            {
+              "building": "Tank Center",
+              "level": 31
+            },
+            {
+              "building": "Wall",
+              "level": 31
+            }
+          ]
+        },
+        "32": {
+          "buildTime": 517900,
+          "costs": {
+            "electricity": 1,
+            "water": 6,
+            "oil": 10,
+            "iron": 13
+          },
+          "prerequisites": [
+            {
+              "building": "1st Tech Center",
+              "level": 32
+            },
+            {
+              "building": "Barracks",
+              "level": 32
+            },
+            {
+              "building": "Tank Center",
+              "level": 32
+            },
+            {
+              "building": "Hospital",
+              "level": 32
+            },
+            {
+              "building": "Drill Ground",
+              "level": 32
+            }
+          ]
+        },
+        "33": {
+          "buildTime": 587500,
+          "costs": {
+            "electricity": 1,
+            "water": 6,
+            "oil": 10,
+            "iron": 13
+          },
+          "prerequisites": [
+            {
+              "building": "1st Tech Center",
+              "level": 33
+            },
+            {
+              "building": "Barracks",
+              "level": 33
+            },
+            {
+              "building": "Tank Center",
+              "level": 33
+            },
+            {
+              "building": "Wall",
+              "level": 33
+            },
+            {
+              "building": "Alliance Support Hub",
+              "level": 33
+            }
+          ]
+        },
+        "34": {
+          "buildTime": 658800,
+          "costs": {
+            "electricity": 1,
+            "water": 6,
+            "oil": 10,
+            "iron": 13
+          },
+          "prerequisites": [
+            {
+              "building": "1st Tech Center",
+              "level": 34
+            },
+            {
+              "building": "Barracks",
+              "level": 34
+            },
+            {
+              "building": "Tank Center",
+              "level": 34
+            },
+            {
+              "building": "Hospital",
+              "level": 34
+            },
+            {
+              "building": "Drill Ground",
+              "level": 34
+            }
+          ]
+        },
+        "35": {
+          "buildTime": 731900,
+          "costs": {
+            "electricity": 1,
+            "water": 6,
+            "oil": 10,
+            "iron": 13
+          },
+          "prerequisites": []
+        }
+      }
+    },
+    "Farmland": {
+      "nameZh": "農田",
+      "levels": {
+        "1": {
+          "buildTime": 1440,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 2
+            }
+          ]
+        },
+        "2": {
+          "buildTime": 2160,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 3
+            }
+          ]
+        },
+        "3": {
+          "buildTime": 3600,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 4
+            }
+          ]
+        },
+        "4": {
+          "buildTime": 4320,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 5
+            }
+          ]
+        },
+        "5": {
+          "buildTime": 5760,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 6
+            }
+          ]
+        },
+        "6": {
+          "buildTime": 6480,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 7
+            }
+          ]
+        },
+        "7": {
+          "buildTime": 7920,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 8
+            }
+          ]
+        },
+        "8": {
+          "buildTime": 9360,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 9
+            }
+          ]
+        },
+        "9": {
+          "buildTime": 10080,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 10
+            }
+          ]
+        },
+        "10": {
+          "buildTime": 11520,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 11
+            }
+          ]
+        },
+        "11": {
+          "buildTime": 12240,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 12
+            }
+          ]
+        },
+        "12": {
+          "buildTime": 13680,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 13
+            }
+          ]
+        },
+        "13": {
+          "buildTime": 14400,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 14
+            }
+          ]
+        },
+        "14": {
+          "buildTime": 15840,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 15
+            }
+          ]
+        },
+        "15": {
+          "buildTime": 17280,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 16
+            }
+          ]
+        },
+        "16": {
+          "buildTime": 18000,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 17
+            }
+          ]
+        },
+        "17": {
+          "buildTime": 19440,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 18
+            }
+          ]
+        },
+        "18": {
+          "buildTime": 20160,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 19
+            }
+          ]
+        },
+        "19": {
+          "buildTime": 21600,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 20
+            }
+          ]
+        },
+        "20": {
+          "buildTime": 23040,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 21
+            }
+          ]
+        },
+        "21": {
+          "buildTime": 23760,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 22
+            }
+          ]
+        },
+        "22": {
+          "buildTime": 25200,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 23
+            }
+          ]
+        },
+        "23": {
+          "buildTime": 25920,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 24
+            }
+          ]
+        },
+        "24": {
+          "buildTime": 27360,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 25
+            }
+          ]
+        },
+        "25": {
+          "buildTime": 28080,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 26
+            }
+          ]
+        },
+        "26": {
+          "buildTime": 29520,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 27
+            }
+          ]
+        },
+        "27": {
+          "buildTime": 30960,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 28
+            }
+          ]
+        },
+        "28": {
+          "buildTime": 31680,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 29
+            }
+          ]
+        },
+        "29": {
+          "buildTime": 33120,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 30
+            }
+          ]
+        },
+        "30": {
+          "buildTime": 33840,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 31
+            }
+          ]
+        },
+        "31": {
+          "buildTime": 35280,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 32
+            }
+          ]
+        },
+        "32": {
+          "buildTime": 36000,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 33
+            }
+          ]
+        },
+        "33": {
+          "buildTime": 37440,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 34
+            }
+          ]
+        },
+        "34": {
+          "buildTime": 38880,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 35
+            }
+          ]
+        },
+        "35": {
+          "buildTime": 39600,
+          "costs": {},
+          "prerequisites": []
+        }
+      }
+    },
+    "Iron Mine": {
+      "nameZh": "鐵礦場",
+      "levels": {
+        "1": {
+          "buildTime": 1440,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 2
+            }
+          ]
+        },
+        "2": {
+          "buildTime": 2160,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 3
+            }
+          ]
+        },
+        "3": {
+          "buildTime": 3600,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 4
+            }
+          ]
+        },
+        "4": {
+          "buildTime": 4320,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 5
+            }
+          ]
+        },
+        "5": {
+          "buildTime": 5760,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 6
+            }
+          ]
+        },
+        "6": {
+          "buildTime": 6480,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 7
+            }
+          ]
+        },
+        "7": {
+          "buildTime": 7920,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 8
+            }
+          ]
+        },
+        "8": {
+          "buildTime": 9360,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 9
+            }
+          ]
+        },
+        "9": {
+          "buildTime": 10080,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 10
+            }
+          ]
+        },
+        "10": {
+          "buildTime": 11520,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 11
+            }
+          ]
+        },
+        "11": {
+          "buildTime": 12240,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 12
+            }
+          ]
+        },
+        "12": {
+          "buildTime": 13680,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 13
+            }
+          ]
+        },
+        "13": {
+          "buildTime": 14400,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 14
+            }
+          ]
+        },
+        "14": {
+          "buildTime": 15840,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 15
+            }
+          ]
+        },
+        "15": {
+          "buildTime": 17280,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 16
+            }
+          ]
+        },
+        "16": {
+          "buildTime": 18000,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 17
+            }
+          ]
+        },
+        "17": {
+          "buildTime": 19440,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 18
+            }
+          ]
+        },
+        "18": {
+          "buildTime": 20160,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 19
+            }
+          ]
+        },
+        "19": {
+          "buildTime": 21600,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 20
+            }
+          ]
+        },
+        "20": {
+          "buildTime": 23040,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 21
+            }
+          ]
+        },
+        "21": {
+          "buildTime": 23760,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 22
+            }
+          ]
+        },
+        "22": {
+          "buildTime": 25200,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 23
+            }
+          ]
+        },
+        "23": {
+          "buildTime": 25920,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 24
+            }
+          ]
+        },
+        "24": {
+          "buildTime": 27360,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 25
+            }
+          ]
+        },
+        "25": {
+          "buildTime": 28080,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 26
+            }
+          ]
+        },
+        "26": {
+          "buildTime": 29520,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 27
+            }
+          ]
+        },
+        "27": {
+          "buildTime": 30960,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 28
+            }
+          ]
+        },
+        "28": {
+          "buildTime": 31680,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 29
+            }
+          ]
+        },
+        "29": {
+          "buildTime": 33120,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 30
+            }
+          ]
+        },
+        "30": {
+          "buildTime": 33840,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 31
+            }
+          ]
+        },
+        "31": {
+          "buildTime": 35280,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 32
+            }
+          ]
+        },
+        "32": {
+          "buildTime": 36000,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 33
+            }
+          ]
+        },
+        "33": {
+          "buildTime": 37440,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 34
+            }
+          ]
+        },
+        "34": {
+          "buildTime": 38880,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 35
+            }
+          ]
+        },
+        "35": {
+          "buildTime": 39600,
+          "costs": {},
+          "prerequisites": []
+        }
+      }
+    },
+    "Barracks": {
+      "nameZh": "兵營",
+      "levels": {
+        "1": {
+          "buildTime": 30,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 2
+            }
+          ]
+        },
+        "2": {
+          "buildTime": 50,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 3
+            }
+          ]
+        },
+        "3": {
+          "buildTime": 100,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 4
+            }
+          ]
+        },
+        "4": {
+          "buildTime": 150,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 5
+            }
+          ]
+        },
+        "5": {
+          "buildTime": 200,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 6
+            }
+          ]
+        },
+        "6": {
+          "buildTime": 250,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 7
+            }
+          ]
+        },
+        "7": {
+          "buildTime": 300,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 8
+            }
+          ]
+        },
+        "8": {
+          "buildTime": 350,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 9
+            }
+          ]
+        },
+        "9": {
+          "buildTime": 360,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 10
+            }
+          ]
+        },
+        "10": {
+          "buildTime": 370,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 11
+            }
+          ]
+        },
+        "11": {
+          "buildTime": 380,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 12
+            }
+          ]
+        },
+        "12": {
+          "buildTime": 390,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 13
+            }
+          ]
+        },
+        "13": {
+          "buildTime": 400,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 14
+            }
+          ]
+        },
+        "14": {
+          "buildTime": 410,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 15
+            }
+          ]
+        },
+        "15": {
+          "buildTime": 420,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 16
+            }
+          ]
+        },
+        "16": {
+          "buildTime": 430,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 17
+            }
+          ]
+        },
+        "17": {
+          "buildTime": 440,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 18
+            }
+          ]
+        },
+        "18": {
+          "buildTime": 450,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 19
+            }
+          ]
+        },
+        "19": {
+          "buildTime": 460,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 20
+            }
+          ]
+        },
+        "20": {
+          "buildTime": 470,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 21
+            }
+          ]
+        },
+        "21": {
+          "buildTime": 480,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 22
+            }
+          ]
+        },
+        "22": {
+          "buildTime": 490,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 23
+            }
+          ]
+        },
+        "23": {
+          "buildTime": 500,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 24
+            }
+          ]
+        },
+        "24": {
+          "buildTime": 510,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 25
+            }
+          ]
+        },
+        "25": {
+          "buildTime": 520,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 26
+            }
+          ]
+        },
+        "26": {
+          "buildTime": 530,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 27
+            }
+          ]
+        },
+        "27": {
+          "buildTime": 540,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 28
+            }
+          ]
+        },
+        "28": {
+          "buildTime": 550,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 29
+            }
+          ]
+        },
+        "29": {
+          "buildTime": 560,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 30
+            }
+          ]
+        },
+        "30": {
+          "buildTime": 570,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 31
+            }
+          ]
+        },
+        "31": {
+          "buildTime": 575,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 32
+            }
+          ]
+        },
+        "32": {
+          "buildTime": 580,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 33
+            }
+          ]
+        },
+        "33": {
+          "buildTime": 585,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 34
+            }
+          ]
+        },
+        "34": {
+          "buildTime": 590,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 35
+            }
+          ]
+        },
+        "35": {
+          "buildTime": 600,
+          "costs": {},
+          "prerequisites": []
+        }
+      }
+    },
+    "Drill Ground": {
+      "nameZh": "校場",
+      "levels": {
+        "1": {
+          "buildTime": 2000,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 2
+            }
+          ]
+        },
+        "2": {
+          "buildTime": 2250,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 3
+            }
+          ]
+        },
+        "3": {
+          "buildTime": 2500,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 4
+            }
+          ]
+        },
+        "4": {
+          "buildTime": 2750,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 5
+            }
+          ]
+        },
+        "5": {
+          "buildTime": 3000,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 6
+            }
+          ]
+        },
+        "6": {
+          "buildTime": 3200,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 7
+            }
+          ]
+        },
+        "7": {
+          "buildTime": 3400,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 8
+            }
+          ]
+        },
+        "8": {
+          "buildTime": 3600,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 9
+            }
+          ]
+        },
+        "9": {
+          "buildTime": 3800,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 10
+            }
+          ]
+        },
+        "10": {
+          "buildTime": 4000,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 11
+            }
+          ]
+        },
+        "11": {
+          "buildTime": 4200,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 12
+            }
+          ]
+        },
+        "12": {
+          "buildTime": 4400,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 13
+            }
+          ]
+        },
+        "13": {
+          "buildTime": 4600,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 14
+            }
+          ]
+        },
+        "14": {
+          "buildTime": 4800,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 15
+            }
+          ]
+        },
+        "15": {
+          "buildTime": 5000,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 16
+            }
+          ]
+        },
+        "16": {
+          "buildTime": 5200,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 17
+            }
+          ]
+        },
+        "17": {
+          "buildTime": 5400,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 18
+            }
+          ]
+        },
+        "18": {
+          "buildTime": 5600,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 19
+            }
+          ]
+        },
+        "19": {
+          "buildTime": 5800,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 20
+            }
+          ]
+        },
+        "20": {
+          "buildTime": 6000,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 21
+            }
+          ]
+        },
+        "21": {
+          "buildTime": 6200,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 22
+            }
+          ]
+        },
+        "22": {
+          "buildTime": 6400,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 23
+            }
+          ]
+        },
+        "23": {
+          "buildTime": 6600,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 24
+            }
+          ]
+        },
+        "24": {
+          "buildTime": 6800,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 25
+            }
+          ]
+        },
+        "25": {
+          "buildTime": 7000,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 26
+            }
+          ]
+        },
+        "26": {
+          "buildTime": 7200,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 27
+            }
+          ]
+        },
+        "27": {
+          "buildTime": 7400,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 28
+            }
+          ]
+        },
+        "28": {
+          "buildTime": 7600,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 29
+            }
+          ]
+        },
+        "29": {
+          "buildTime": 7800,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 30
+            }
+          ]
+        },
+        "30": {
+          "buildTime": 8000,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 31
+            }
+          ]
+        },
+        "31": {
+          "buildTime": 8100,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 32
+            }
+          ]
+        },
+        "32": {
+          "buildTime": 8200,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 33
+            }
+          ]
+        },
+        "33": {
+          "buildTime": 8300,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 34
+            }
+          ]
+        },
+        "34": {
+          "buildTime": 8400,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 35
+            }
+          ]
+        },
+        "35": {
+          "buildTime": 8500,
+          "costs": {},
+          "prerequisites": []
+        }
+      }
+    },
+    "1st Squad": {
+      "nameZh": "第一小隊",
+      "levels": {
+        "1": {
+          "buildTime": 500,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 2
+            }
+          ]
+        },
+        "2": {
+          "buildTime": 1000,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 3
+            }
+          ]
+        },
+        "3": {
+          "buildTime": 1500,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 4
+            }
+          ]
+        },
+        "4": {
+          "buildTime": 2000,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 5
+            }
+          ]
+        },
+        "5": {
+          "buildTime": 2500,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 6
+            }
+          ]
+        },
+        "6": {
+          "buildTime": 3000,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 7
+            }
+          ]
+        },
+        "7": {
+          "buildTime": 3500,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 8
+            }
+          ]
+        },
+        "8": {
+          "buildTime": 4200,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 9
+            }
+          ]
+        },
+        "9": {
+          "buildTime": 5100,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 10
+            }
+          ]
+        },
+        "10": {
+          "buildTime": 6100,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 11
+            }
+          ]
+        },
+        "11": {
+          "buildTime": 7600,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 12
+            }
+          ]
+        },
+        "12": {
+          "buildTime": 9600,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 13
+            }
+          ]
+        },
+        "13": {
+          "buildTime": 11600,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 14
+            }
+          ]
+        },
+        "14": {
+          "buildTime": 14000,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 15
+            }
+          ]
+        },
+        "15": {
+          "buildTime": 16800,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 16
+            }
+          ]
+        },
+        "16": {
+          "buildTime": 20600,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 17
+            }
+          ]
+        },
+        "17": {
+          "buildTime": 24900,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 18
+            }
+          ]
+        },
+        "18": {
+          "buildTime": 30600,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 19
+            }
+          ]
+        },
+        "19": {
+          "buildTime": 36900,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 20
+            }
+          ]
+        },
+        "20": {
+          "buildTime": 45200,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 21
+            }
+          ]
+        },
+        "21": {
+          "buildTime": 55000,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 22
+            }
+          ]
+        },
+        "22": {
+          "buildTime": 66100,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 23
+            }
+          ]
+        },
+        "23": {
+          "buildTime": 78600,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 24
+            }
+          ]
+        },
+        "24": {
+          "buildTime": 92600,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 25
+            }
+          ]
+        },
+        "25": {
+          "buildTime": 110500,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 26
+            }
+          ]
+        },
+        "26": {
+          "buildTime": 131800,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 27
+            }
+          ]
+        },
+        "27": {
+          "buildTime": 156100,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 28
+            }
+          ]
+        },
+        "28": {
+          "buildTime": 185100,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 29
+            }
+          ]
+        },
+        "29": {
+          "buildTime": 219500,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 30
+            }
+          ]
+        },
+        "30": {
+          "buildTime": 260000,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 31
+            }
+          ]
+        },
+        "31": {
+          "buildTime": 302400,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 32
+            }
+          ]
+        },
+        "32": {
+          "buildTime": 346900,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 33
+            }
+          ]
+        },
+        "33": {
+          "buildTime": 393500,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 34
+            }
+          ]
+        },
+        "34": {
+          "buildTime": 441200,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 35
+            }
+          ]
+        },
+        "35": {
+          "buildTime": 491100,
+          "costs": {},
+          "prerequisites": []
+        }
+      }
+    },
+    "Alliance Support Hub": {
+      "nameZh": "同盟互助中心",
+      "levels": {
+        "1": {
+          "buildTime": 5,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 4
+            }
+          ]
+        },
+        "2": {
+          "buildTime": 5,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 4
+            }
+          ]
+        },
+        "3": {
+          "buildTime": 6,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 4
+            }
+          ]
+        },
+        "4": {
+          "buildTime": 6,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 5
+            }
+          ]
+        },
+        "5": {
+          "buildTime": 7,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 6
+            }
+          ]
+        },
+        "6": {
+          "buildTime": 7,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 7
+            }
+          ]
+        },
+        "7": {
+          "buildTime": 8,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 8
+            }
+          ]
+        },
+        "8": {
+          "buildTime": 8,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 9
+            }
+          ]
+        },
+        "9": {
+          "buildTime": 9,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 10
+            }
+          ]
+        },
+        "10": {
+          "buildTime": 9,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 11
+            }
+          ]
+        },
+        "11": {
+          "buildTime": 10,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 12
+            }
+          ]
+        },
+        "12": {
+          "buildTime": 10,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 13
+            }
+          ]
+        },
+        "13": {
+          "buildTime": 11,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 14
+            }
+          ]
+        },
+        "14": {
+          "buildTime": 11,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 15
+            }
+          ]
+        },
+        "15": {
+          "buildTime": 12,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 16
+            }
+          ]
+        },
+        "16": {
+          "buildTime": 12,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 17
+            }
+          ]
+        },
+        "17": {
+          "buildTime": 13,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 18
+            }
+          ]
+        },
+        "18": {
+          "buildTime": 13,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 19
+            }
+          ]
+        },
+        "19": {
+          "buildTime": 14,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 20
+            }
+          ]
+        },
+        "20": {
+          "buildTime": 14,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 21
+            }
+          ]
+        },
+        "21": {
+          "buildTime": 15,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 22
+            }
+          ]
+        },
+        "22": {
+          "buildTime": 15,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 23
+            }
+          ]
+        },
+        "23": {
+          "buildTime": 16,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 24
+            }
+          ]
+        },
+        "24": {
+          "buildTime": 16,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 25
+            }
+          ]
+        },
+        "25": {
+          "buildTime": 17,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 26
+            }
+          ]
+        },
+        "26": {
+          "buildTime": 17,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 27
+            }
+          ]
+        },
+        "27": {
+          "buildTime": 18,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 28
+            }
+          ]
+        },
+        "28": {
+          "buildTime": 18,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 29
+            }
+          ]
+        },
+        "29": {
+          "buildTime": 19,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 30
+            }
+          ]
+        },
+        "30": {
+          "buildTime": 20,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 31
+            }
+          ]
+        },
+        "31": {
+          "buildTime": 21,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 32
+            }
+          ]
+        },
+        "32": {
+          "buildTime": 21,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 33
+            }
+          ]
+        },
+        "33": {
+          "buildTime": 22,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 34
+            }
+          ]
+        },
+        "34": {
+          "buildTime": 22,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 35
+            }
+          ]
+        },
+        "35": {
+          "buildTime": 23,
+          "costs": {},
+          "prerequisites": []
+        }
+      }
+    },
+    "Wall": {
+      "nameZh": "城牆",
+      "levels": {
+        "1": {
+          "buildTime": 10000,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 2
+            }
+          ]
+        },
+        "2": {
+          "buildTime": 10000,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 3
+            }
+          ]
+        },
+        "3": {
+          "buildTime": 10000,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 4
+            }
+          ]
+        },
+        "4": {
+          "buildTime": 10000,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 5
+            }
+          ]
+        },
+        "5": {
+          "buildTime": 10000,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 6
+            }
+          ]
+        },
+        "6": {
+          "buildTime": 10000,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 7
+            }
+          ]
+        },
+        "7": {
+          "buildTime": 10000,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 8
+            }
+          ]
+        },
+        "8": {
+          "buildTime": 10000,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 9
+            }
+          ]
+        },
+        "9": {
+          "buildTime": 10000,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 10
+            }
+          ]
+        },
+        "10": {
+          "buildTime": 10000,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 11
+            }
+          ]
+        },
+        "11": {
+          "buildTime": 10000,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 12
+            }
+          ]
+        },
+        "12": {
+          "buildTime": 10000,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 13
+            }
+          ]
+        },
+        "13": {
+          "buildTime": 10000,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 14
+            }
+          ]
+        },
+        "14": {
+          "buildTime": 10000,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 15
+            }
+          ]
+        },
+        "15": {
+          "buildTime": 10000,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 16
+            }
+          ]
+        },
+        "16": {
+          "buildTime": 10000,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 17
+            }
+          ]
+        },
+        "17": {
+          "buildTime": 10000,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 18
+            }
+          ]
+        },
+        "18": {
+          "buildTime": 10000,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 19
+            }
+          ]
+        },
+        "19": {
+          "buildTime": 10000,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 20
+            }
+          ]
+        },
+        "20": {
+          "buildTime": 10000,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 21
+            }
+          ]
+        },
+        "21": {
+          "buildTime": 10000,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 22
+            }
+          ]
+        },
+        "22": {
+          "buildTime": 10000,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 23
+            }
+          ]
+        },
+        "23": {
+          "buildTime": 10000,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 24
+            }
+          ]
+        },
+        "24": {
+          "buildTime": 10000,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 25
+            }
+          ]
+        },
+        "25": {
+          "buildTime": 10000,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 26
+            }
+          ]
+        },
+        "26": {
+          "buildTime": 10000,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 27
+            }
+          ]
+        },
+        "27": {
+          "buildTime": 10000,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 28
+            }
+          ]
+        },
+        "28": {
+          "buildTime": 10000,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 29
+            }
+          ]
+        },
+        "29": {
+          "buildTime": 10000,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 30
+            }
+          ]
+        },
+        "30": {
+          "buildTime": 10000,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 31
+            }
+          ]
+        },
+        "31": {
+          "buildTime": 10000,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 32
+            }
+          ]
+        },
+        "32": {
+          "buildTime": 10000,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 33
+            }
+          ]
+        },
+        "33": {
+          "buildTime": 10000,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 34
+            }
+          ]
+        },
+        "34": {
+          "buildTime": 10000,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 35
+            }
+          ]
+        },
+        "35": {
+          "buildTime": 10000,
+          "costs": {},
+          "prerequisites": []
+        }
+      }
+    },
+    "Recon Plane": {
+      "nameZh": "偵察機",
+      "levels": {
+        "1": {
+          "buildTime": 300,
+          "costs": {},
+          "prerequisites": []
+        },
+        "2": {
+          "buildTime": 600,
+          "costs": {},
+          "prerequisites": []
+        },
+        "3": {
+          "buildTime": 900,
+          "costs": {},
+          "prerequisites": []
+        },
+        "4": {
+          "buildTime": 1200,
+          "costs": {},
+          "prerequisites": []
+        },
+        "5": {
+          "buildTime": 1500,
+          "costs": {},
+          "prerequisites": []
+        },
+        "6": {
+          "buildTime": 1800,
+          "costs": {},
+          "prerequisites": []
+        },
+        "7": {
+          "buildTime": 2200,
+          "costs": {},
+          "prerequisites": []
+        },
+        "8": {
+          "buildTime": 2700,
+          "costs": {},
+          "prerequisites": []
+        },
+        "9": {
+          "buildTime": 3400,
+          "costs": {},
+          "prerequisites": []
+        },
+        "10": {
+          "buildTime": 4100,
+          "costs": {},
+          "prerequisites": []
+        },
+        "11": {
+          "buildTime": 5200,
+          "costs": {},
+          "prerequisites": []
+        },
+        "12": {
+          "buildTime": 6600,
+          "costs": {},
+          "prerequisites": []
+        },
+        "13": {
+          "buildTime": 8100,
+          "costs": {},
+          "prerequisites": []
+        },
+        "14": {
+          "buildTime": 9800,
+          "costs": {},
+          "prerequisites": []
+        },
+        "15": {
+          "buildTime": 11800,
+          "costs": {},
+          "prerequisites": []
+        },
+        "16": {
+          "buildTime": 14500,
+          "costs": {},
+          "prerequisites": []
+        },
+        "17": {
+          "buildTime": 17600,
+          "costs": {},
+          "prerequisites": []
+        },
+        "18": {
+          "buildTime": 21600,
+          "costs": {},
+          "prerequisites": []
+        },
+        "19": {
+          "buildTime": 26000,
+          "costs": {},
+          "prerequisites": []
+        },
+        "20": {
+          "buildTime": 31900,
+          "costs": {},
+          "prerequisites": []
+        },
+        "21": {
+          "buildTime": 38900,
+          "costs": {},
+          "prerequisites": []
+        },
+        "22": {
+          "buildTime": 46800,
+          "costs": {},
+          "prerequisites": []
+        },
+        "23": {
+          "buildTime": 55600,
+          "costs": {},
+          "prerequisites": []
+        },
+        "24": {
+          "buildTime": 65500,
+          "costs": {},
+          "prerequisites": []
+        },
+        "25": {
+          "buildTime": 78400,
+          "costs": {},
+          "prerequisites": []
+        },
+        "26": {
+          "buildTime": 93500,
+          "costs": {},
+          "prerequisites": []
+        },
+        "27": {
+          "buildTime": 110700,
+          "costs": {},
+          "prerequisites": []
+        },
+        "28": {
+          "buildTime": 131000,
+          "costs": {},
+          "prerequisites": []
+        },
+        "29": {
+          "buildTime": 155300,
+          "costs": {},
+          "prerequisites": []
+        },
+        "30": {
+          "buildTime": 183900,
+          "costs": {},
+          "prerequisites": []
+        },
+        "31": {
+          "buildTime": 214100,
+          "costs": {},
+          "prerequisites": []
+        },
+        "32": {
+          "buildTime": 245700,
+          "costs": {},
+          "prerequisites": []
+        },
+        "33": {
+          "buildTime": 278700,
+          "costs": {},
+          "prerequisites": []
+        },
+        "34": {
+          "buildTime": 312400,
+          "costs": {},
+          "prerequisites": []
+        },
+        "35": {
+          "buildTime": 347100,
+          "costs": {},
+          "prerequisites": []
+        }
+      }
+    },
+    "Gold Mine": {
+      "nameZh": "金礦",
+      "levels": {
+        "1": {
+          "buildTime": 720,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 2
+            }
+          ]
+        },
+        "2": {
+          "buildTime": 1440,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 3
+            }
+          ]
+        },
+        "3": {
+          "buildTime": 2160,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 4
+            }
+          ]
+        },
+        "4": {
+          "buildTime": 2880,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 5
+            }
+          ]
+        },
+        "5": {
+          "buildTime": 3600,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 6
+            }
+          ]
+        },
+        "6": {
+          "buildTime": 4320,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 7
+            }
+          ]
+        },
+        "7": {
+          "buildTime": 5040,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 8
+            }
+          ]
+        },
+        "8": {
+          "buildTime": 5760,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 9
+            }
+          ]
+        },
+        "9": {
+          "buildTime": 6480,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 10
+            }
+          ]
+        },
+        "10": {
+          "buildTime": 7200,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 11
+            }
+          ]
+        },
+        "11": {
+          "buildTime": 7920,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 12
+            }
+          ]
+        },
+        "12": {
+          "buildTime": 8640,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 13
+            }
+          ]
+        },
+        "13": {
+          "buildTime": 9360,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 14
+            }
+          ]
+        },
+        "14": {
+          "buildTime": 10080,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 15
+            }
+          ]
+        },
+        "15": {
+          "buildTime": 10800,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 16
+            }
+          ]
+        },
+        "16": {
+          "buildTime": 11520,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 17
+            }
+          ]
+        },
+        "17": {
+          "buildTime": 12240,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 18
+            }
+          ]
+        },
+        "18": {
+          "buildTime": 12960,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 19
+            }
+          ]
+        },
+        "19": {
+          "buildTime": 13680,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 20
+            }
+          ]
+        },
+        "20": {
+          "buildTime": 14400,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 21
+            }
+          ]
+        },
+        "21": {
+          "buildTime": 15120,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 22
+            }
+          ]
+        },
+        "22": {
+          "buildTime": 15840,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 23
+            }
+          ]
+        },
+        "23": {
+          "buildTime": 16560,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 24
+            }
+          ]
+        },
+        "24": {
+          "buildTime": 17280,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 25
+            }
+          ]
+        },
+        "25": {
+          "buildTime": 18000,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 26
+            }
+          ]
+        },
+        "26": {
+          "buildTime": 18720,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 27
+            }
+          ]
+        },
+        "27": {
+          "buildTime": 19440,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 28
+            }
+          ]
+        },
+        "28": {
+          "buildTime": 20160,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 29
+            }
+          ]
+        },
+        "29": {
+          "buildTime": 20880,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 30
+            }
+          ]
+        },
+        "30": {
+          "buildTime": 21600,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 31
+            }
+          ]
+        },
+        "31": {
+          "buildTime": 22320,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 32
+            }
+          ]
+        },
+        "32": {
+          "buildTime": 23040,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 33
+            }
+          ]
+        },
+        "33": {
+          "buildTime": 23760,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 34
+            }
+          ]
+        },
+        "34": {
+          "buildTime": 24480,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 35
+            }
+          ]
+        },
+        "35": {
+          "buildTime": 25200,
+          "costs": {},
+          "prerequisites": []
+        }
+      }
+    },
+    "Tank Center": {
+      "nameZh": "坦克中心",
+      "levels": {
+        "1": {
+          "buildTime": 600,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 2
+            }
+          ]
+        },
+        "2": {
+          "buildTime": 1200,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 3
+            }
+          ]
+        },
+        "3": {
+          "buildTime": 1800,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 4
+            }
+          ]
+        },
+        "4": {
+          "buildTime": 2400,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 5
+            }
+          ]
+        },
+        "5": {
+          "buildTime": 3000,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 6
+            }
+          ]
+        },
+        "6": {
+          "buildTime": 3600,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 7
+            }
+          ]
+        },
+        "7": {
+          "buildTime": 4200,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 8
+            }
+          ]
+        },
+        "8": {
+          "buildTime": 4900,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 9
+            }
+          ]
+        },
+        "9": {
+          "buildTime": 5800,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 10
+            }
+          ]
+        },
+        "10": {
+          "buildTime": 6800,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 11
+            }
+          ]
+        },
+        "11": {
+          "buildTime": 8400,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 12
+            }
+          ]
+        },
+        "12": {
+          "buildTime": 10500,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 13
+            }
+          ]
+        },
+        "13": {
+          "buildTime": 12600,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 14
+            }
+          ]
+        },
+        "14": {
+          "buildTime": 15100,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 15
+            }
+          ]
+        },
+        "15": {
+          "buildTime": 18100,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 16
+            }
+          ]
+        },
+        "16": {
+          "buildTime": 22100,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 17
+            }
+          ]
+        },
+        "17": {
+          "buildTime": 26600,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 18
+            }
+          ]
+        },
+        "18": {
+          "buildTime": 32600,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 19
+            }
+          ]
+        },
+        "19": {
+          "buildTime": 39100,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 20
+            }
+          ]
+        },
+        "20": {
+          "buildTime": 47900,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 21
+            }
+          ]
+        },
+        "21": {
+          "buildTime": 58200,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 22
+            }
+          ]
+        },
+        "22": {
+          "buildTime": 70000,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 23
+            }
+          ]
+        },
+        "23": {
+          "buildTime": 83100,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 24
+            }
+          ]
+        },
+        "24": {
+          "buildTime": 97900,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 25
+            }
+          ]
+        },
+        "25": {
+          "buildTime": 117200,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 26
+            }
+          ]
+        },
+        "26": {
+          "buildTime": 139800,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 27
+            }
+          ]
+        },
+        "27": {
+          "buildTime": 165500,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 28
+            }
+          ]
+        },
+        "28": {
+          "buildTime": 196000,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 29
+            }
+          ]
+        },
+        "29": {
+          "buildTime": 232300,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 30
+            }
+          ]
+        },
+        "30": {
+          "buildTime": 275300,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 31
+            }
+          ]
+        },
+        "31": {
+          "buildTime": 320300,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 32
+            }
+          ]
+        },
+        "32": {
+          "buildTime": 367300,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 33
+            }
+          ]
+        },
+        "33": {
+          "buildTime": 416300,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 34
+            }
+          ]
+        },
+        "34": {
+          "buildTime": 466700,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 35
+            }
+          ]
+        },
+        "35": {
+          "buildTime": 518700,
+          "costs": {},
+          "prerequisites": []
+        }
+      }
+    },
+    "Missile Center": {
+      "nameZh": "導彈中心",
+      "levels": {
+        "1": {
+          "buildTime": 600,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 2
+            }
+          ]
+        },
+        "2": {
+          "buildTime": 1200,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 3
+            }
+          ]
+        },
+        "3": {
+          "buildTime": 1800,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 4
+            }
+          ]
+        },
+        "4": {
+          "buildTime": 2400,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 5
+            }
+          ]
+        },
+        "5": {
+          "buildTime": 3000,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 6
+            }
+          ]
+        },
+        "6": {
+          "buildTime": 3600,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 7
+            }
+          ]
+        },
+        "7": {
+          "buildTime": 4200,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 8
+            }
+          ]
+        },
+        "8": {
+          "buildTime": 4900,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 9
+            }
+          ]
+        },
+        "9": {
+          "buildTime": 5800,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 10
+            }
+          ]
+        },
+        "10": {
+          "buildTime": 6800,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 11
+            }
+          ]
+        },
+        "11": {
+          "buildTime": 8400,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 12
+            }
+          ]
+        },
+        "12": {
+          "buildTime": 10500,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 13
+            }
+          ]
+        },
+        "13": {
+          "buildTime": 12600,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 14
+            }
+          ]
+        },
+        "14": {
+          "buildTime": 15100,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 15
+            }
+          ]
+        },
+        "15": {
+          "buildTime": 18100,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 16
+            }
+          ]
+        },
+        "16": {
+          "buildTime": 22100,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 17
+            }
+          ]
+        },
+        "17": {
+          "buildTime": 26600,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 18
+            }
+          ]
+        },
+        "18": {
+          "buildTime": 32600,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 19
+            }
+          ]
+        },
+        "19": {
+          "buildTime": 39100,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 20
+            }
+          ]
+        },
+        "20": {
+          "buildTime": 47900,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 21
+            }
+          ]
+        },
+        "21": {
+          "buildTime": 58200,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 22
+            }
+          ]
+        },
+        "22": {
+          "buildTime": 70000,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 23
+            }
+          ]
+        },
+        "23": {
+          "buildTime": 83100,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 24
+            }
+          ]
+        },
+        "24": {
+          "buildTime": 97900,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 25
+            }
+          ]
+        },
+        "25": {
+          "buildTime": 117200,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 26
+            }
+          ]
+        },
+        "26": {
+          "buildTime": 139800,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 27
+            }
+          ]
+        },
+        "27": {
+          "buildTime": 165500,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 28
+            }
+          ]
+        },
+        "28": {
+          "buildTime": 196000,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 29
+            }
+          ]
+        },
+        "29": {
+          "buildTime": 232300,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 30
+            }
+          ]
+        },
+        "30": {
+          "buildTime": 275300,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 31
+            }
+          ]
+        },
+        "31": {
+          "buildTime": 320300,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 32
+            }
+          ]
+        },
+        "32": {
+          "buildTime": 367300,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 33
+            }
+          ]
+        },
+        "33": {
+          "buildTime": 416300,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 34
+            }
+          ]
+        },
+        "34": {
+          "buildTime": 466700,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 35
+            }
+          ]
+        },
+        "35": {
+          "buildTime": 518700,
+          "costs": {},
+          "prerequisites": []
+        }
+      }
+    },
+    "Aircraft Center": {
+      "nameZh": "飛機中心",
+      "levels": {
+        "1": {
+          "buildTime": 600,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 2
+            }
+          ]
+        },
+        "2": {
+          "buildTime": 1200,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 3
+            }
+          ]
+        },
+        "3": {
+          "buildTime": 1800,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 4
+            }
+          ]
+        },
+        "4": {
+          "buildTime": 2400,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 5
+            }
+          ]
+        },
+        "5": {
+          "buildTime": 3000,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 6
+            }
+          ]
+        },
+        "6": {
+          "buildTime": 3600,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 7
+            }
+          ]
+        },
+        "7": {
+          "buildTime": 4200,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 8
+            }
+          ]
+        },
+        "8": {
+          "buildTime": 4900,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 9
+            }
+          ]
+        },
+        "9": {
+          "buildTime": 5800,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 10
+            }
+          ]
+        },
+        "10": {
+          "buildTime": 6800,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 11
+            }
+          ]
+        },
+        "11": {
+          "buildTime": 8400,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 12
+            }
+          ]
+        },
+        "12": {
+          "buildTime": 10500,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 13
+            }
+          ]
+        },
+        "13": {
+          "buildTime": 12600,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 14
+            }
+          ]
+        },
+        "14": {
+          "buildTime": 15100,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 15
+            }
+          ]
+        },
+        "15": {
+          "buildTime": 18100,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 16
+            }
+          ]
+        },
+        "16": {
+          "buildTime": 22100,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 17
+            }
+          ]
+        },
+        "17": {
+          "buildTime": 26600,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 18
+            }
+          ]
+        },
+        "18": {
+          "buildTime": 32600,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 19
+            }
+          ]
+        },
+        "19": {
+          "buildTime": 39100,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 20
+            }
+          ]
+        },
+        "20": {
+          "buildTime": 47900,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 21
+            }
+          ]
+        },
+        "21": {
+          "buildTime": 58200,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 22
+            }
+          ]
+        },
+        "22": {
+          "buildTime": 70000,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 23
+            }
+          ]
+        },
+        "23": {
+          "buildTime": 83100,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 24
+            }
+          ]
+        },
+        "24": {
+          "buildTime": 97900,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 25
+            }
+          ]
+        },
+        "25": {
+          "buildTime": 117200,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 26
+            }
+          ]
+        },
+        "26": {
+          "buildTime": 139800,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 27
+            }
+          ]
+        },
+        "27": {
+          "buildTime": 165500,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 28
+            }
+          ]
+        },
+        "28": {
+          "buildTime": 196000,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 29
+            }
+          ]
+        },
+        "29": {
+          "buildTime": 232300,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 30
+            }
+          ]
+        },
+        "30": {
+          "buildTime": 275300,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 31
+            }
+          ]
+        },
+        "31": {
+          "buildTime": 320300,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 32
+            }
+          ]
+        },
+        "32": {
+          "buildTime": 367300,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 33
+            }
+          ]
+        },
+        "33": {
+          "buildTime": 416300,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 34
+            }
+          ]
+        },
+        "34": {
+          "buildTime": 466700,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 35
+            }
+          ]
+        },
+        "35": {
+          "buildTime": 518700,
+          "costs": {},
+          "prerequisites": []
+        }
+      }
+    },
+    "Builder's Hut": {
+      "nameZh": "建築工小屋",
+      "levels": {
+        "1": {
+          "buildTime": 500,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 2
+            }
+          ]
+        },
+        "2": {
+          "buildTime": 1000,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 3
+            }
+          ]
+        },
+        "3": {
+          "buildTime": 1500,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 4
+            }
+          ]
+        },
+        "4": {
+          "buildTime": 2000,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 5
+            }
+          ]
+        },
+        "5": {
+          "buildTime": 2500,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 6
+            }
+          ]
+        },
+        "6": {
+          "buildTime": 3000,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 7
+            }
+          ]
+        },
+        "7": {
+          "buildTime": 3500,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 8
+            }
+          ]
+        },
+        "8": {
+          "buildTime": 4100,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 9
+            }
+          ]
+        },
+        "9": {
+          "buildTime": 4800,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 10
+            }
+          ]
+        },
+        "10": {
+          "buildTime": 5600,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 11
+            }
+          ]
+        },
+        "11": {
+          "buildTime": 6800,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 12
+            }
+          ]
+        },
+        "12": {
+          "buildTime": 8400,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 13
+            }
+          ]
+        },
+        "13": {
+          "buildTime": 10100,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 14
+            }
+          ]
+        },
+        "14": {
+          "buildTime": 12100,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 15
+            }
+          ]
+        },
+        "15": {
+          "buildTime": 14400,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 16
+            }
+          ]
+        },
+        "16": {
+          "buildTime": 17500,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 17
+            }
+          ]
+        },
+        "17": {
+          "buildTime": 21000,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 18
+            }
+          ]
+        },
+        "18": {
+          "buildTime": 25600,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 19
+            }
+          ]
+        },
+        "19": {
+          "buildTime": 30700,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 20
+            }
+          ]
+        },
+        "20": {
+          "buildTime": 37500,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 21
+            }
+          ]
+        },
+        "21": {
+          "buildTime": 45500,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 22
+            }
+          ]
+        },
+        "22": {
+          "buildTime": 54600,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 23
+            }
+          ]
+        },
+        "23": {
+          "buildTime": 64800,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 24
+            }
+          ]
+        },
+        "24": {
+          "buildTime": 76200,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 25
+            }
+          ]
+        },
+        "25": {
+          "buildTime": 90800,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 26
+            }
+          ]
+        },
+        "26": {
+          "buildTime": 108300,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 27
+            }
+          ]
+        },
+        "27": {
+          "buildTime": 128200,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 28
+            }
+          ]
+        },
+        "28": {
+          "buildTime": 151800,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 29
+            }
+          ]
+        },
+        "29": {
+          "buildTime": 179800,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 30
+            }
+          ]
+        },
+        "30": {
+          "buildTime": 212800,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 31
+            }
+          ]
+        },
+        "31": {
+          "buildTime": 247400,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 32
+            }
+          ]
+        },
+        "32": {
+          "buildTime": 283700,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 33
+            }
+          ]
+        },
+        "33": {
+          "buildTime": 321800,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 34
+            }
+          ]
+        },
+        "34": {
+          "buildTime": 360900,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 35
+            }
+          ]
+        },
+        "35": {
+          "buildTime": 401400,
+          "costs": {},
+          "prerequisites": []
+        }
+      }
+    },
+    "1st Tech Center": {
+      "nameZh": "第1科學研究中心",
+      "levels": {
+        "1": {
+          "buildTime": 900,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 4
+            }
+          ]
+        },
+        "2": {
+          "buildTime": 1800,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 4
+            }
+          ]
+        },
+        "3": {
+          "buildTime": 2700,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 4
+            }
+          ]
+        },
+        "4": {
+          "buildTime": 3600,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 5
+            }
+          ]
+        },
+        "5": {
+          "buildTime": 4500,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 6
+            }
+          ]
+        },
+        "6": {
+          "buildTime": 5400,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 7
+            }
+          ]
+        },
+        "7": {
+          "buildTime": 6300,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 8
+            }
+          ]
+        },
+        "8": {
+          "buildTime": 7200,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 9
+            }
+          ]
+        },
+        "9": {
+          "buildTime": 8400,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 10
+            }
+          ]
+        },
+        "10": {
+          "buildTime": 9700,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 11
+            }
+          ]
+        },
+        "11": {
+          "buildTime": 11800,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 12
+            }
+          ]
+        },
+        "12": {
+          "buildTime": 14500,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 13
+            }
+          ]
+        },
+        "13": {
+          "buildTime": 17300,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 14
+            }
+          ]
+        },
+        "14": {
+          "buildTime": 20700,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 15
+            }
+          ]
+        },
+        "15": {
+          "buildTime": 24600,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 16
+            }
+          ]
+        },
+        "16": {
+          "buildTime": 29900,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 17
+            }
+          ]
+        },
+        "17": {
+          "buildTime": 35900,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 18
+            }
+          ]
+        },
+        "18": {
+          "buildTime": 43800,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 19
+            }
+          ]
+        },
+        "19": {
+          "buildTime": 52400,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 20
+            }
+          ]
+        },
+        "20": {
+          "buildTime": 64000,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 21
+            }
+          ]
+        },
+        "21": {
+          "buildTime": 77600,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 22
+            }
+          ]
+        },
+        "22": {
+          "buildTime": 93100,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 23
+            }
+          ]
+        },
+        "23": {
+          "buildTime": 110600,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 24
+            }
+          ]
+        },
+        "24": {
+          "buildTime": 130100,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 25
+            }
+          ]
+        },
+        "25": {
+          "buildTime": 155300,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 26
+            }
+          ]
+        },
+        "26": {
+          "buildTime": 185100,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 27
+            }
+          ]
+        },
+        "27": {
+          "buildTime": 219400,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 28
+            }
+          ]
+        },
+        "28": {
+          "buildTime": 259800,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 29
+            }
+          ]
+        },
+        "29": {
+          "buildTime": 307600,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 30
+            }
+          ]
+        },
+        "30": {
+          "buildTime": 364800,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 31
+            }
+          ]
+        },
+        "31": {
+          "buildTime": 424300,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 32
+            }
+          ]
+        },
+        "32": {
+          "buildTime": 486100,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 33
+            }
+          ]
+        },
+        "33": {
+          "buildTime": 551700,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 34
+            }
+          ]
+        },
+        "34": {
+          "buildTime": 619200,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 35
+            }
+          ]
+        },
+        "35": {
+          "buildTime": 688400,
+          "costs": {},
+          "prerequisites": []
+        }
+      }
+    },
+    "Hospital": {
+      "nameZh": "醫院",
+      "levels": {
+        "1": {
+          "buildTime": 650,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 2
+            }
+          ]
+        },
+        "2": {
+          "buildTime": 700,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 3
+            }
+          ]
+        },
+        "3": {
+          "buildTime": 750,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 4
+            }
+          ]
+        },
+        "4": {
+          "buildTime": 800,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 5
+            }
+          ]
+        },
+        "5": {
+          "buildTime": 850,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 6
+            }
+          ]
+        },
+        "6": {
+          "buildTime": 900,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 7
+            }
+          ]
+        },
+        "7": {
+          "buildTime": 950,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 8
+            }
+          ]
+        },
+        "8": {
+          "buildTime": 1000,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 9
+            }
+          ]
+        },
+        "9": {
+          "buildTime": 1050,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 10
+            }
+          ]
+        },
+        "10": {
+          "buildTime": 1100,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 11
+            }
+          ]
+        },
+        "11": {
+          "buildTime": 1150,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 12
+            }
+          ]
+        },
+        "12": {
+          "buildTime": 1200,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 13
+            }
+          ]
+        },
+        "13": {
+          "buildTime": 1250,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 14
+            }
+          ]
+        },
+        "14": {
+          "buildTime": 1300,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 15
+            }
+          ]
+        },
+        "15": {
+          "buildTime": 1350,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 16
+            }
+          ]
+        },
+        "16": {
+          "buildTime": 1400,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 17
+            }
+          ]
+        },
+        "17": {
+          "buildTime": 1450,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 18
+            }
+          ]
+        },
+        "18": {
+          "buildTime": 1500,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 19
+            }
+          ]
+        },
+        "19": {
+          "buildTime": 1550,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 20
+            }
+          ]
+        },
+        "20": {
+          "buildTime": 1600,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 21
+            }
+          ]
+        },
+        "21": {
+          "buildTime": 1640,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 22
+            }
+          ]
+        },
+        "22": {
+          "buildTime": 1680,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 23
+            }
+          ]
+        },
+        "23": {
+          "buildTime": 1720,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 24
+            }
+          ]
+        },
+        "24": {
+          "buildTime": 1760,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 25
+            }
+          ]
+        },
+        "25": {
+          "buildTime": 1800,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 26
+            }
+          ]
+        },
+        "26": {
+          "buildTime": 1840,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 27
+            }
+          ]
+        },
+        "27": {
+          "buildTime": 1880,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 28
+            }
+          ]
+        },
+        "28": {
+          "buildTime": 1920,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 29
+            }
+          ]
+        },
+        "29": {
+          "buildTime": 1960,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 30
+            }
+          ]
+        },
+        "30": {
+          "buildTime": 2000,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 31
+            }
+          ]
+        },
+        "31": {
+          "buildTime": 2020,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 32
+            }
+          ]
+        },
+        "32": {
+          "buildTime": 2040,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 33
+            }
+          ]
+        },
+        "33": {
+          "buildTime": 2060,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 34
+            }
+          ]
+        },
+        "34": {
+          "buildTime": 2080,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 35
+            }
+          ]
+        },
+        "35": {
+          "buildTime": 2100,
+          "costs": {},
+          "prerequisites": []
+        }
+      }
+    },
+    "2nd Tech Center": {
+      "nameZh": "第2科學研究中心",
+      "levels": {
+        "1": {
+          "buildTime": 900,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 2
+            }
+          ]
+        },
+        "2": {
+          "buildTime": 1800,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 3
+            }
+          ]
+        },
+        "3": {
+          "buildTime": 2700,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 4
+            }
+          ]
+        },
+        "4": {
+          "buildTime": 3600,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 5
+            }
+          ]
+        },
+        "5": {
+          "buildTime": 4500,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 6
+            }
+          ]
+        },
+        "6": {
+          "buildTime": 5400,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 7
+            }
+          ]
+        },
+        "7": {
+          "buildTime": 6300,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 8
+            }
+          ]
+        },
+        "8": {
+          "buildTime": 7200,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 9
+            }
+          ]
+        },
+        "9": {
+          "buildTime": 8400,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 10
+            }
+          ]
+        },
+        "10": {
+          "buildTime": 9700,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 11
+            }
+          ]
+        },
+        "11": {
+          "buildTime": 11800,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 12
+            }
+          ]
+        },
+        "12": {
+          "buildTime": 14500,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 13
+            }
+          ]
+        },
+        "13": {
+          "buildTime": 17300,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 14
+            }
+          ]
+        },
+        "14": {
+          "buildTime": 20700,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 15
+            }
+          ]
+        },
+        "15": {
+          "buildTime": 24600,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 16
+            }
+          ]
+        },
+        "16": {
+          "buildTime": 29900,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 17
+            }
+          ]
+        },
+        "17": {
+          "buildTime": 35900,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 18
+            }
+          ]
+        },
+        "18": {
+          "buildTime": 43800,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 19
+            }
+          ]
+        },
+        "19": {
+          "buildTime": 52400,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 20
+            }
+          ]
+        },
+        "20": {
+          "buildTime": 64000,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 21
+            }
+          ]
+        },
+        "21": {
+          "buildTime": 77600,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 22
+            }
+          ]
+        },
+        "22": {
+          "buildTime": 93100,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 23
+            }
+          ]
+        },
+        "23": {
+          "buildTime": 110600,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 24
+            }
+          ]
+        },
+        "24": {
+          "buildTime": 130100,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 25
+            }
+          ]
+        },
+        "25": {
+          "buildTime": 155300,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 26
+            }
+          ]
+        },
+        "26": {
+          "buildTime": 185100,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 27
+            }
+          ]
+        },
+        "27": {
+          "buildTime": 219400,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 28
+            }
+          ]
+        },
+        "28": {
+          "buildTime": 259800,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 29
+            }
+          ]
+        },
+        "29": {
+          "buildTime": 307600,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 30
+            }
+          ]
+        },
+        "30": {
+          "buildTime": 364800,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 31
+            }
+          ]
+        },
+        "31": {
+          "buildTime": 424300,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 32
+            }
+          ]
+        },
+        "32": {
+          "buildTime": 486100,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 33
+            }
+          ]
+        },
+        "33": {
+          "buildTime": 551700,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 34
+            }
+          ]
+        },
+        "34": {
+          "buildTime": 619200,
+          "costs": {},
+          "prerequisites": [
+            {
+              "building": "Headquarters",
+              "level": 35
+            }
+          ]
+        },
+        "35": {
+          "buildTime": 688400,
+          "costs": {},
+          "prerequisites": []
+        }
+      }
+    }
+  }
+}
