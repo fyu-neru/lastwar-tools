@@ -139,6 +139,10 @@
               <span class="text-gray-600">{{ labels.iron }}: </span>
               <span class="font-medium">{{ totalResources.iron.toLocaleString() }}</span>
             </div>
+            <div v-if="gemCost > 0" class="col-span-2 sm:col-span-3">
+              <span class="text-gray-600">{{ labels.queueRentalCost }}: </span>
+              <span class="font-medium text-yellow-600">~{{ gemCost }} 💎</span>
+            </div>
           </div>
         </div>
 
@@ -156,7 +160,7 @@
             {{ labels.allQueues }}
           </button>
           <button
-            v-for="q in numQueues"
+            v-for="q in displayQueues"
             :key="q"
             @click="activeQueue = q"
             :class="[
@@ -330,6 +334,7 @@ const labelMap = {
     starts: 'starts',
     dependencyTree: 'Dependency Tree',
     alreadyMet: 'already met',
+    queueRentalCost: 'Est. 2nd Queue Gems',
   },
   zh: {
     currentBuildings: '您目前的建築等級',
@@ -360,6 +365,7 @@ const labelMap = {
     starts: '開始',
     dependencyTree: '依賴樹',
     alreadyMet: '已滿足',
+    queueRentalCost: '2隊租用寶石',
   },
 };
 
@@ -375,12 +381,17 @@ const totalTimeWithoutPosition = ref(0);
 const totalResources = ref({ electricity: 0, water: 0, oil: 0, iron: 0 });
 const calculated = ref(false);
 const dependencyTree = ref(null);
+const gemCost = ref(0);
+const simulatedQueues = ref(2);
 
 // Settings
 const numQueues = ref(2);
 const vipLevel = ref(0);
 const hasPosition = ref(false);
 const activeQueue = ref(null);
+
+// When numQueues=1, we simulate with 2 queues — show both queue tabs
+const displayQueues = computed(() => simulatedQueues.value);
 
 const filteredSteps = computed(() => {
   if (activeQueue.value === null) return steps.value;
@@ -491,16 +502,18 @@ function calculate() {
   const speedWithoutPosition = VIP_BUILD_SPEED[vipLevel.value];
   const currentSpeed = hasPosition.value ? speedWithPosition : speedWithoutPosition;
 
-  // Schedule with current settings
-  const scheduled = window.BuildingCalc.scheduleUpgrades(resolved, numQueues.value, currentSpeed);
+  // Schedule with current settings (uses scheduleWithGemCost for 1-queue gem cost annotation)
+  const { scheduled, gemCost: cost, simulatedQueues: simQ } = window.BuildingCalc.scheduleWithGemCost(resolved, numQueues.value, currentSpeed);
+  gemCost.value = cost;
+  simulatedQueues.value = simQ;
   const totalT = window.BuildingCalc.getTotalTime(scheduled);
 
   // For dual-column display when position is active
   if (hasPosition.value) {
-    const scheduledWithPos = window.BuildingCalc.scheduleUpgrades(resolved, numQueues.value, speedWithPosition);
-    const scheduledWithoutPos = window.BuildingCalc.scheduleUpgrades(resolved, numQueues.value, speedWithoutPosition);
-    totalTimeWithPosition.value = window.BuildingCalc.getTotalTime(scheduledWithPos);
-    totalTimeWithoutPosition.value = window.BuildingCalc.getTotalTime(scheduledWithoutPos);
+    const resultWithPos = window.BuildingCalc.scheduleWithGemCost(resolved, numQueues.value, speedWithPosition);
+    const resultWithoutPos = window.BuildingCalc.scheduleWithGemCost(resolved, numQueues.value, speedWithoutPosition);
+    totalTimeWithPosition.value = window.BuildingCalc.getTotalTime(resultWithPos.scheduled);
+    totalTimeWithoutPosition.value = window.BuildingCalc.getTotalTime(resultWithoutPos.scheduled);
   }
 
   // Annotate steps with original index for display

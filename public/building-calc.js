@@ -228,5 +228,33 @@
     return buildNode(targetBuilding, targetLevel);
   }
 
-  window.BuildingCalc = { resolveUpgrades, sumResources, scheduleUpgrades, getTotalTime, buildDependencyTree };
+  /**
+   * Schedule upgrades, with gem cost calculation when user selects 1 queue.
+   * Per game mechanics: 2nd queue costs 200 gems per 2-hour rental block.
+   * When numQueues=1, simulates with 2 queues to show time saved + gem cost.
+   *
+   * @param {Array} upgrades - from resolveUpgrades()
+   * @param {number} numQueues - user-selected queue count (1-4)
+   * @param {number} speedBonusPct - build speed bonus %
+   * @returns {{ scheduled: Array, simulatedQueues: number, gemCost: number }}
+   */
+  function scheduleWithGemCost(upgrades, numQueues, speedBonusPct) {
+    const simulatedQueues = Math.max(numQueues, 2);
+    const scheduled = scheduleUpgrades(upgrades, simulatedQueues, speedBonusPct);
+
+    let gemCost = 0;
+    if (numQueues === 1) {
+      // Find how long queue 1 (the rented queue) is occupied
+      const queue1Tasks = scheduled.filter(s => s.queue === 1);
+      if (queue1Tasks.length > 0) {
+        const maxQueue1Time = Math.max(...queue1Tasks.map(s => s.endTime));
+        const rentalBlocks = Math.ceil(maxQueue1Time / 7200);
+        gemCost = rentalBlocks * 200;
+      }
+    }
+
+    return { scheduled, simulatedQueues, gemCost };
+  }
+
+  window.BuildingCalc = { resolveUpgrades, sumResources, scheduleUpgrades, getTotalTime, buildDependencyTree, scheduleWithGemCost };
 })();
