@@ -16,8 +16,10 @@
           </summary>
           <div class="px-4 py-3 grid grid-cols-1 sm:grid-cols-2 gap-2">
             <template v-for="building in groupBuildings" :key="building">
-              <!-- Multi-instance buildings -->
-              <template v-if="getMultiInstanceSlots(building) > 1">
+              <!-- Hidden when slots = 0 (e.g. Oil Well before science unlock) -->
+              <template v-if="getMultiInstanceSlots(building) === 0" />
+              <!-- Multi-instance buildings (slots > 1) -->
+              <template v-else-if="getMultiInstanceSlots(building) > 1">
                 <div
                   v-for="slot in getMultiInstanceSlots(building)"
                   :key="`${building}_${slot}`"
@@ -34,7 +36,7 @@
                   </select>
                 </div>
               </template>
-              <!-- Single-instance buildings -->
+              <!-- Single-instance buildings (slots = 1) -->
               <div
                 v-else
                 class="flex items-center justify-between gap-2"
@@ -84,6 +86,26 @@
                 class="border border-gray-300 rounded px-2 py-1 text-sm w-32"
               />
             </div>
+            <div class="flex flex-col gap-1">
+              <label class="text-sm text-gray-600">{{ labels.researchQueues }}</label>
+              <select
+                v-model="numResearchQueues"
+                class="border border-gray-300 rounded px-2 py-1 text-sm w-24"
+              >
+                <option :value="1">1</option>
+                <option :value="2">2</option>
+              </select>
+            </div>
+            <div class="flex flex-col gap-1">
+              <label class="text-sm text-gray-600">{{ labels.scienceBuildSpeed }}</label>
+              <input
+                type="number"
+                v-model.number="scienceBuildSpeed"
+                min="0"
+                max="200"
+                class="border border-gray-300 rounded px-2 py-1 text-sm w-24"
+              />
+            </div>
             <div class="flex items-center gap-2 pt-4">
               <input
                 type="checkbox"
@@ -94,6 +116,35 @@
               <label for="officialPosition" class="text-sm text-gray-700 cursor-pointer">
                 {{ labels.officialPosition }}
               </label>
+            </div>
+          </div>
+
+          <!-- Science Unlocks -->
+          <div class="mt-4 pt-4 border-t border-gray-200">
+            <h4 class="text-sm font-medium text-gray-600 mb-2">{{ labels.scienceUnlocks }}</h4>
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
+              <div v-for="[key, label] in [
+                ['extra_farmland', labels.extraFarmland],
+                ['extra_iron_mine', labels.extraIronMine],
+                ['extra_gold_mine', labels.extraGoldMine],
+                ['unlock_oil_well', labels.unlockOilWell],
+                ['extra_oil_well', labels.extraOilWell],
+              ]" :key="key" class="flex items-center gap-2">
+                <input
+                  type="checkbox"
+                  :id="`science_${key}`"
+                  v-model="scienceUnlocks[key]"
+                  :disabled="key === 'extra_oil_well' && !scienceUnlocks.unlock_oil_well"
+                  class="w-4 h-4"
+                />
+                <label
+                  :for="`science_${key}`"
+                  class="text-sm cursor-pointer"
+                  :class="key === 'extra_oil_well' && !scienceUnlocks.unlock_oil_well ? 'text-gray-400' : 'text-gray-700'"
+                >
+                  {{ label }}
+                </label>
+              </div>
             </div>
           </div>
         </div>
@@ -287,24 +338,16 @@ const BUILDING_GROUPS = {
   core: ['Headquarters', '1st Tech Center', '2nd Tech Center'],
   military: ['Barracks', 'Drill Ground', '1st Squad', 'Recon Plane', 'Tank Center', 'Missile Center', 'Aircraft Center'],
   defense: ['Wall'],
-  economy: ['Farmland', 'Iron Mine', 'Gold Mine'],
+  economy: ['Farmland', 'Iron Mine', 'Gold Mine', 'Oil Well'],
   support: ['Hospital', 'Alliance Support Hub', "Builder's Hut"],
 };
 
-const MULTI_INSTANCE_UNLOCKS = {
-  'Farmland': [
-    { slots: 1, hqLevel: 1 },
-    { slots: 2, hqLevel: 2 },
-    { slots: 3, hqLevel: 8 },
-    { slots: 4, hqLevel: 12 },
-  ],
-  'Iron Mine': [
-    { slots: 1, hqLevel: 1 },
-    { slots: 2, hqLevel: 4 },
-  ],
-  'Gold Mine': [
-    { slots: 1, hqLevel: 2 },
-  ],
+// Max possible slots for initialization (HQ-gated + science bonus)
+const MAX_SLOTS = {
+  'Farmland': 5,
+  'Iron Mine': 2,
+  'Gold Mine': 2,
+  'Oil Well': 5,
 };
 
 const groupNames = {
@@ -349,6 +392,14 @@ const labelMap = {
     dependencyTree: 'Dependency Tree',
     alreadyMet: 'already met',
     queueRentalCost: 'Est. 2nd Queue Gems',
+    researchQueues: 'Research Queues',
+    scienceBuildSpeed: 'Science Build Speed (%)',
+    scienceUnlocks: 'Science Unlocks (Building Slots)',
+    extraFarmland: 'Extra Farmland',
+    extraIronMine: 'Extra Iron Mine',
+    extraGoldMine: 'Extra Gold Mine',
+    unlockOilWell: 'Unlock Oil Well',
+    extraOilWell: 'Extra Oil Well',
   },
   zh: {
     currentBuildings: '您目前的建築等級',
@@ -381,6 +432,14 @@ const labelMap = {
     dependencyTree: '依賴樹',
     alreadyMet: '已滿足',
     queueRentalCost: '2隊租用寶石',
+    researchQueues: '研究佇列',
+    scienceBuildSpeed: '科技建造速度（%）',
+    scienceUnlocks: '科技解鎖（建築欄位）',
+    extraFarmland: '額外農田',
+    extraIronMine: '額外鐵礦場',
+    extraGoldMine: '額外金礦',
+    unlockOilWell: '解鎖油井',
+    extraOilWell: '額外油井',
   },
 };
 
@@ -402,10 +461,21 @@ const simulatedQueues = ref(2);
 
 // Settings
 const numQueues = ref(2);
+const numResearchQueues = ref(1);
 const vipLevel = ref(0);
 const vipPoints = ref(0);
 const hasPosition = ref(false);
+const scienceBuildSpeed = ref(0);
 const activeQueue = ref(null);
+
+// Science-based building slot unlocks
+const scienceUnlocks = reactive({
+  extra_farmland: false,
+  extra_iron_mine: false,
+  extra_gold_mine: false,
+  unlock_oil_well: false,
+  extra_oil_well: false,
+});
 
 const vipSpeed = computed(() => VIP_BUILD_SPEED[vipLevel.value] || 0);
 
@@ -420,7 +490,7 @@ const filteredSteps = computed(() => {
 // Collapse multi-instance buildings to their max level for resolveUpgrades
 const currentLevelsForCalc = computed(() => {
   const result = { ...currentLevels };
-  for (const [building] of Object.entries(MULTI_INSTANCE_UNLOCKS)) {
+  for (const building of Object.keys(MAX_SLOTS)) {
     const maxLevel = Math.max(
       0,
       ...Object.keys(currentLevels)
@@ -433,8 +503,9 @@ const currentLevelsForCalc = computed(() => {
 });
 
 function getMultiInstanceSlots(building) {
+  if (!window.BuildingCalc) return MAX_SLOTS[building] ? 1 : 0;
   const hqLevel = currentLevels['Headquarters'] || 0;
-  return window.BuildingCalc.getUnlockedSlots(building, hqLevel);
+  return window.BuildingCalc.getUnlockedSlots(building, hqLevel, scienceUnlocks);
 }
 
 onMounted(async () => {
@@ -445,10 +516,9 @@ onMounted(async () => {
     for (const group of Object.values(BUILDING_GROUPS)) {
       for (const b of group) {
         currentLevels[b] = 0;
-        // Initialize multi-instance slots
-        const unlocks = MULTI_INSTANCE_UNLOCKS[b];
-        if (unlocks) {
-          const maxSlots = unlocks[unlocks.length - 1].slots;
+        // Initialize multi-instance slots up to max possible
+        const maxSlots = MAX_SLOTS[b];
+        if (maxSlots) {
           for (let i = 1; i <= maxSlots; i++) {
             currentLevels[`${b}_${i}`] = 0;
           }
@@ -512,6 +582,7 @@ function calculate() {
     startingVipPoints: vipPoints.value,
     startingVipLevel: vipLevel.value,
     hasPosition: hasPosition.value,
+    scienceBuildSpeedPct: scienceBuildSpeed.value,
   };
   const simQueues = Math.max(numQueues.value, 2);
   const vipResult = window.BuildingCalc.scheduleWithVipProgression(resolved, simQueues, vipState);

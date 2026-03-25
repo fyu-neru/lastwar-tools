@@ -25,6 +25,7 @@ const BUILDING_NAMES_EN = {
   '10201': 'Farmland',
   '10202': 'Iron Mine',
   '10207': 'Gold Mine',
+  '10221': 'Oil Well',
 };
 
 const BUILDING_NAMES_ZH = {
@@ -45,6 +46,7 @@ const BUILDING_NAMES_ZH = {
   '10201': '農田',
   '10202': '鐵礦場',
   '10207': '金礦',
+  '10221': '油井',
 };
 
 const RESOURCE_NAMES = {

@@ -219,7 +219,8 @@
     return buildNode(targetBuilding, targetLevel);
   }
 
-  const MULTI_INSTANCE_UNLOCKS = {
+  // HQ-level-gated base slot counts for multi-instance buildings
+  const HQ_SLOT_UNLOCKS = {
     'Farmland': [
       { slots: 1, hqLevel: 1 },
       { slots: 2, hqLevel: 2 },
@@ -228,26 +229,54 @@
     ],
     'Iron Mine': [
       { slots: 1, hqLevel: 1 },
-      { slots: 2, hqLevel: 4 },
     ],
     'Gold Mine': [
       { slots: 1, hqLevel: 2 },
     ],
+    // Oil Well: HQ-level slots require unlock_oil_well science as a gate
+    'Oil Well': [
+      { slots: 1, hqLevel: 30 },
+      { slots: 2, hqLevel: 31 },
+      { slots: 3, hqLevel: 33 },
+      { slots: 4, hqLevel: 34 },
+    ],
+  };
+
+  // Science research keys that gate or add +1 slot
+  // For Oil Well: unlock_oil_well is a required gate (without it, HQ-based slots don't apply)
+  const SCIENCE_SLOT_UNLOCKS = {
+    'Farmland':  ['extra_farmland'],
+    'Iron Mine': ['extra_iron_mine'],
+    'Gold Mine': ['extra_gold_mine'],
+    'Oil Well':  ['extra_oil_well'],  // +1 bonus on top of HQ-gated slots
   };
 
   /**
-   * Get the number of building slots unlocked for a given HQ level.
+   * Get the number of building slots unlocked.
    * @param {string} building - building name
    * @param {number} hqLevel - current HQ level
+   * @param {Object} [scienceUnlocks] - map of science key → boolean
    * @returns {number} number of slots (1 for single-instance buildings)
    */
-  function getUnlockedSlots(building, hqLevel) {
-    const unlocks = MULTI_INSTANCE_UNLOCKS[building];
-    if (!unlocks) return 1;
+  function getUnlockedSlots(building, hqLevel, scienceUnlocks = {}) {
+    const hqUnlocks = HQ_SLOT_UNLOCKS[building];
+    if (!hqUnlocks && !SCIENCE_SLOT_UNLOCKS[building]) return 1;
+
+    // Oil Well requires unlock_oil_well science before any HQ-based slots apply
+    if (building === 'Oil Well' && !scienceUnlocks['unlock_oil_well']) return 0;
+
     let slots = 0;
-    for (const unlock of unlocks) {
-      if (hqLevel >= unlock.hqLevel) slots = unlock.slots;
+    if (hqUnlocks) {
+      for (const unlock of hqUnlocks) {
+        if (hqLevel >= unlock.hqLevel) slots = unlock.slots;
+      }
     }
+
+    const scienceKeys = SCIENCE_SLOT_UNLOCKS[building] || [];
+    for (const key of scienceKeys) {
+      if (scienceUnlocks[key]) slots++;
+    }
+
     return slots;
   }
 
@@ -316,7 +345,7 @@
    * @returns {{ scheduled: Array, finalVipPoints: number, finalVipLevel: number }}
    */
   function scheduleWithVipProgression(upgrades, numQueues, vipState) {
-    const { startingVipPoints = 0, hasPosition = false } = vipState;
+    const { startingVipPoints = 0, hasPosition = false, scienceBuildSpeedPct = 0 } = vipState;
     const POSITION_BONUS = hasPosition ? 20 : 0;
 
     const queueFreeAt = new Array(numQueues).fill(0);
@@ -334,7 +363,7 @@
 
       // Apply speed bonus at THIS task's start (based on current VIP level)
       const currentVipLevel = getVipLevel(cumulativeVipPoints);
-      const speedBonus = (VIP_BUILD_SPEED_TABLE[currentVipLevel] || 0) + POSITION_BONUS;
+      const speedBonus = (VIP_BUILD_SPEED_TABLE[currentVipLevel] || 0) + POSITION_BONUS + scienceBuildSpeedPct;
       const speedDivisor = 1 + speedBonus / 100;
       const actualBuildTime = Math.round(upgrade.buildTime / speedDivisor);
 
