@@ -1,0 +1,88 @@
+---
+import Base from '../../../layouts/Base.astro';
+import { t, localePath } from '../../../i18n/utils';
+import { tools } from '../../../tools/registry';
+
+const lang = 'zh';
+---
+
+<Base title={t(lang, 'tools.title')}>
+  <h1>{t(lang, 'tools.title')}</h1>
+
+  {tools.length === 0 ? (
+    <p class="empty">{t(lang, 'tools.no_tools')}</p>
+  ) : (
+    <div class="tools-grid">
+      {tools.map(tool => (
+        <a
+          href={tool.status === 'available' ? localePath(lang, `/tools/${tool.id}`) : '#'}
+          class={`tool-card ${tool.status === 'coming-soon' ? 'coming-soon' : ''}`}
+        >
+          <h3>{t(lang, tool.titleKey)}</h3>
+          <p>{t(lang, tool.descKey)}</p>
+          {tool.status === 'coming-soon' && (
+            <span class="badge">{t(lang, 'home.coming_soon')}</span>
+          )}
+        </a>
+      ))}
+    </div>
+  )}
+</Base>
+
+<style>
+  h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+  }
+
+  .empty {
+    color: #9ca3af;
+    font-style: italic;
+  }
+
+  .tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1rem;
+  }
+
+  .tool-card {
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 1.25rem;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+
+  .tool-card:hover:not(.coming-soon) {
+    border-color: #9ca3af;
+  }
+
+  .tool-card.coming-soon {
+    opacity: 0.5;
+    cursor: default;
+  }
+
+  .tool-card h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+  }
+
+  .tool-card p {
+    font-size: 0.875rem;
+    color: #6b7280;
+  }
+
+  .badge {
+    margin-top: 0.5rem;
+    display: inline-block;
+    font-size: 0.75rem;
+    padding: 0.15rem 0.4rem;
+    background: #f3f4f6;
+    border-radius: 4px;
+    color: #6b7280;
+  }
+</style>
