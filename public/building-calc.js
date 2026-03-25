@@ -169,5 +169,64 @@
     return scheduledUpgrades[scheduledUpgrades.length - 1].endTime;
   }
 
-  window.BuildingCalc = { resolveUpgrades, sumResources, scheduleUpgrades, getTotalTime };
+  /**
+   * Build a nested dependency tree for display.
+   * @param {Object} buildingData
+   * @param {string} targetBuilding - e.g., "Headquarters"
+   * @param {number} targetLevel - e.g., 35
+   * @param {Object} currentLevels - player's current levels
+   * @returns {Object} Tree node: { building, level, met: boolean, children: [...] }
+   *   met = true if player already meets this requirement
+   */
+  function buildDependencyTree(buildingData, targetBuilding, targetLevel, currentLevels) {
+    const visiting = new Set();
+
+    function buildNode(building, level) {
+      const currentLevel = (currentLevels && currentLevels[building] != null)
+        ? currentLevels[building]
+        : 0;
+      const met = currentLevel >= level;
+
+      const children = [];
+      const visitKey = `${building}:${level}`;
+
+      if (visiting.has(visitKey)) {
+        return { building, level, met, children };
+      }
+      visiting.add(visitKey);
+
+      const buildingDef = buildingData.buildings[building];
+      if (buildingDef) {
+        // Collect unique prerequisites across all levels up to target
+        const prereqMap = new Map(); // "building:level" -> {building, level}
+        for (let lvl = 1; lvl <= level; lvl++) {
+          const levelDef = buildingDef.levels[String(lvl)];
+          if (!levelDef) continue;
+          const prereqs = levelDef.prerequisites || [];
+          for (const prereq of prereqs) {
+            const key = `${prereq.building}:${prereq.level}`;
+            if (!prereqMap.has(key)) {
+              prereqMap.set(key, prereq);
+            } else {
+              // Keep the highest level requirement for same building
+              if (prereq.level > prereqMap.get(key).level) {
+                prereqMap.set(key, prereq);
+              }
+            }
+          }
+        }
+
+        for (const prereq of prereqMap.values()) {
+          children.push(buildNode(prereq.building, prereq.level));
+        }
+      }
+
+      visiting.delete(visitKey);
+      return { building, level, met, children };
+    }
+
+    return buildNode(targetBuilding, targetLevel);
+  }
+
+  window.BuildingCalc = { resolveUpgrades, sumResources, scheduleUpgrades, getTotalTime, buildDependencyTree };
 })();

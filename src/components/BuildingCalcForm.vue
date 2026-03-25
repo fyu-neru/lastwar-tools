@@ -15,21 +15,41 @@
             {{ groupName(groupKey) }}
           </summary>
           <div class="px-4 py-3 grid grid-cols-1 sm:grid-cols-2 gap-2">
-            <div
-              v-for="building in groupBuildings"
-              :key="building"
-              class="flex items-center justify-between gap-2"
-            >
-              <label class="text-sm flex-1">{{ displayName(building) }}</label>
-              <select
-                v-model="currentLevels[building]"
-                class="border border-gray-300 rounded px-2 py-1 text-sm w-20"
+            <template v-for="building in groupBuildings" :key="building">
+              <!-- Multi-instance buildings -->
+              <template v-if="getMultiInstanceSlots(building) > 1">
+                <div
+                  v-for="slot in getMultiInstanceSlots(building)"
+                  :key="`${building}_${slot}`"
+                  class="flex items-center justify-between gap-2"
+                >
+                  <label class="text-sm flex-1">{{ displayName(building) }} {{ slot }}</label>
+                  <select
+                    v-model="currentLevels[`${building}_${slot}`]"
+                    class="border border-gray-300 rounded px-2 py-1 text-sm w-20"
+                  >
+                    <option v-for="lvl in levelOptions(building)" :key="lvl" :value="lvl">
+                      {{ lvl }}
+                    </option>
+                  </select>
+                </div>
+              </template>
+              <!-- Single-instance buildings -->
+              <div
+                v-else
+                class="flex items-center justify-between gap-2"
               >
-                <option v-for="lvl in levelOptions(building)" :key="lvl" :value="lvl">
-                  {{ lvl }}
-                </option>
-              </select>
-            </div>
+                <label class="text-sm flex-1">{{ displayName(building) }}</label>
+                <select
+                  v-model="currentLevels[building]"
+                  class="border border-gray-300 rounded px-2 py-1 text-sm w-20"
+                >
+                  <option v-for="lvl in levelOptions(building)" :key="lvl" :value="lvl">
+                    {{ lvl }}
+                  </option>
+                </select>
+              </div>
+            </template>
           </div>
         </details>
 
@@ -177,6 +197,21 @@
             </span>
           </li>
         </ol>
+
+        <!-- Dependency Tree -->
+        <details class="mt-6 border border-gray-200 rounded">
+          <summary class="cursor-pointer px-4 py-2 bg-gray-50 font-medium select-none">
+            {{ labels.dependencyTree }}
+          </summary>
+          <div class="px-4 py-3">
+            <TreeNode
+              v-if="dependencyTree"
+              :node="dependencyTree"
+              :display-name="displayName"
+              :already-met-label="labels.alreadyMet"
+            />
+          </div>
+        </details>
       </div>
     </section>
 
@@ -187,10 +222,47 @@
 </template>
 
 <script setup>
-import { ref, reactive, computed, onMounted } from 'vue';
+import { ref, reactive, computed, onMounted, defineComponent, h } from 'vue';
 
 const props = defineProps({
   lang: { type: String, default: 'en' },
+});
+
+// Recursive tree node component
+const TreeNode = defineComponent({
+  name: 'TreeNode',
+  props: {
+    node: { type: Object, required: true },
+    displayName: { type: Function, required: true },
+    alreadyMetLabel: { type: String, default: 'already met' },
+  },
+  setup(props) {
+    return () => {
+      const { node, displayName, alreadyMetLabel } = props;
+      const label = h('div', {
+        class: node.met ? 'text-gray-400' : 'text-gray-800',
+      }, [
+        `${displayName(node.building)} → Lv ${node.level}`,
+        node.met
+          ? h('span', { class: 'text-xs text-green-500 ml-1' }, `(✓ ${alreadyMetLabel})`)
+          : null,
+      ]);
+
+      const children = node.children && node.children.length
+        ? h('div', { class: 'ml-4 border-l border-gray-200 pl-2' },
+            node.children.map(child =>
+              h(TreeNode, {
+                node: child,
+                displayName,
+                alreadyMetLabel,
+              })
+            )
+          )
+        : null;
+
+      return h('div', { class: 'tree-node ml-4' }, [label, children]);
+    };
+  },
 });
 
 const BUILDING_GROUPS = {
@@ -199,6 +271,22 @@ const BUILDING_GROUPS = {
   defense: ['Wall'],
   economy: ['Farmland', 'Iron Mine', 'Gold Mine'],
   support: ['Hospital', 'Alliance Support Hub', "Builder's Hut"],
+};
+
+const MULTI_INSTANCE_UNLOCKS = {
+  'Farmland': [
+    { slots: 1, hqLevel: 1 },
+    { slots: 2, hqLevel: 2 },
+    { slots: 3, hqLevel: 8 },
+    { slots: 4, hqLevel: 12 },
+  ],
+  'Iron Mine': [
+    { slots: 1, hqLevel: 1 },
+    { slots: 2, hqLevel: 4 },
+  ],
+  'Gold Mine': [
+    { slots: 1, hqLevel: 2 },
+  ],
 };
 
 const groupNames = {
@@ -240,6 +328,8 @@ const labelMap = {
     queue: 'Q',
     allQueues: 'All Queues',
     starts: 'starts',
+    dependencyTree: 'Dependency Tree',
+    alreadyMet: 'already met',
   },
   zh: {
     currentBuildings: '您目前的建築等級',
@@ -268,6 +358,8 @@ const labelMap = {
     queue: 'Q',
     allQueues: '全部佇列',
     starts: '開始',
+    dependencyTree: '依賴樹',
+    alreadyMet: '已滿足',
   },
 };
 
@@ -282,6 +374,7 @@ const totalTimeWithPosition = ref(0);
 const totalTimeWithoutPosition = ref(0);
 const totalResources = ref({ electricity: 0, water: 0, oil: 0, iron: 0 });
 const calculated = ref(false);
+const dependencyTree = ref(null);
 
 // Settings
 const numQueues = ref(2);
@@ -294,6 +387,34 @@ const filteredSteps = computed(() => {
   return steps.value.filter(s => s.queue === activeQueue.value);
 });
 
+// Collapse multi-instance buildings to their max level for resolveUpgrades
+const currentLevelsForCalc = computed(() => {
+  const result = { ...currentLevels };
+  for (const [building] of Object.entries(MULTI_INSTANCE_UNLOCKS)) {
+    const maxLevel = Math.max(
+      0,
+      ...Object.keys(currentLevels)
+        .filter(k => k.startsWith(building + '_'))
+        .map(k => currentLevels[k] || 0)
+    );
+    result[building] = maxLevel;
+  }
+  return result;
+});
+
+function getMultiInstanceSlots(building) {
+  const unlocks = MULTI_INSTANCE_UNLOCKS[building];
+  if (!unlocks) return 1;
+  const hqLevel = currentLevels['Headquarters'] || 0;
+  let slots = 0;
+  for (const unlock of unlocks) {
+    if (hqLevel >= unlock.hqLevel) {
+      slots = unlock.slots;
+    }
+  }
+  return slots;
+}
+
 onMounted(async () => {
   try {
     const resp = await fetch('/lastwar-tools/building-data.json');
@@ -302,6 +423,14 @@ onMounted(async () => {
     for (const group of Object.values(BUILDING_GROUPS)) {
       for (const b of group) {
         currentLevels[b] = 0;
+        // Initialize multi-instance slots
+        const unlocks = MULTI_INSTANCE_UNLOCKS[b];
+        if (unlocks) {
+          const maxSlots = unlocks[unlocks.length - 1].slots;
+          for (let i = 1; i <= maxSlots; i++) {
+            currentLevels[`${b}_${i}`] = 0;
+          }
+        }
       }
     }
     dataLoaded.value = true;
@@ -346,11 +475,13 @@ function formatTime(seconds) {
 function calculate() {
   if (!window.BuildingCalc || !buildingData.value) return;
 
+  const levelsForCalc = currentLevelsForCalc.value;
+
   const resolved = window.BuildingCalc.resolveUpgrades(
     buildingData.value,
     'Headquarters',
     35,
-    { ...currentLevels }
+    levelsForCalc
   );
 
   const summary = window.BuildingCalc.sumResources(resolved);
@@ -386,5 +517,13 @@ function calculate() {
   calculated.value = true;
   // Reset queue filter when recalculating
   activeQueue.value = null;
+
+  // Build dependency tree
+  dependencyTree.value = window.BuildingCalc.buildDependencyTree(
+    buildingData.value,
+    'Headquarters',
+    35,
+    levelsForCalc
+  );
 }
 </script>
