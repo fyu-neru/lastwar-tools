@@ -422,16 +422,8 @@ const currentLevelsForCalc = computed(() => {
 });
 
 function getMultiInstanceSlots(building) {
-  const unlocks = MULTI_INSTANCE_UNLOCKS[building];
-  if (!unlocks) return 1;
   const hqLevel = currentLevels['Headquarters'] || 0;
-  let slots = 0;
-  for (const unlock of unlocks) {
-    if (hqLevel >= unlock.hqLevel) {
-      slots = unlock.slots;
-    }
-  }
-  return slots;
+  return window.BuildingCalc.getUnlockedSlots(building, hqLevel);
 }
 
 onMounted(async () => {

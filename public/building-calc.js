@@ -176,53 +176,79 @@
    *   met = true if player already meets this requirement
    */
   function buildDependencyTree(buildingData, targetBuilding, targetLevel, currentLevels) {
-    const visiting = new Set();
+    // Cache: "building:level" -> node (avoids exponential blowup in DAG)
+    const cache = new Map();
 
     function buildNode(building, level) {
+      const cacheKey = `${building}:${level}`;
+      if (cache.has(cacheKey)) return cache.get(cacheKey);
+
       const currentLevel = (currentLevels && currentLevels[building] != null)
         ? currentLevels[building]
         : 0;
       const met = currentLevel >= level;
 
-      const children = [];
-      const visitKey = `${building}:${level}`;
-
-      if (visiting.has(visitKey)) {
-        return { building, level, met, children };
-      }
-      visiting.add(visitKey);
+      // Insert a placeholder to break cycles
+      const node = { building, level, met, children: [] };
+      cache.set(cacheKey, node);
 
       const buildingDef = buildingData.buildings[building];
       if (buildingDef) {
         // Collect unique prerequisites across all levels up to target
-        const prereqMap = new Map(); // "building:level" -> {building, level}
+        const prereqMap = new Map(); // building -> highest required level
         for (let lvl = 1; lvl <= level; lvl++) {
           const levelDef = buildingDef.levels[String(lvl)];
           if (!levelDef) continue;
           const prereqs = levelDef.prerequisites || [];
           for (const prereq of prereqs) {
-            const key = `${prereq.building}:${prereq.level}`;
-            if (!prereqMap.has(key)) {
-              prereqMap.set(key, prereq);
-            } else {
-              // Keep the highest level requirement for same building
-              if (prereq.level > prereqMap.get(key).level) {
-                prereqMap.set(key, prereq);
-              }
+            const existing = prereqMap.get(prereq.building);
+            if (!existing || prereq.level > existing.level) {
+              prereqMap.set(prereq.building, prereq);
             }
           }
         }
 
         for (const prereq of prereqMap.values()) {
-          children.push(buildNode(prereq.building, prereq.level));
+          node.children.push(buildNode(prereq.building, prereq.level));
         }
       }
 
-      visiting.delete(visitKey);
-      return { building, level, met, children };
+      return node;
     }
 
     return buildNode(targetBuilding, targetLevel);
+  }
+
+  const MULTI_INSTANCE_UNLOCKS = {
+    'Farmland': [
+      { slots: 1, hqLevel: 1 },
+      { slots: 2, hqLevel: 2 },
+      { slots: 3, hqLevel: 8 },
+      { slots: 4, hqLevel: 12 },
+    ],
+    'Iron Mine': [
+      { slots: 1, hqLevel: 1 },
+      { slots: 2, hqLevel: 4 },
+    ],
+    'Gold Mine': [
+      { slots: 1, hqLevel: 2 },
+    ],
+  };
+
+  /**
+   * Get the number of building slots unlocked for a given HQ level.
+   * @param {string} building - building name
+   * @param {number} hqLevel - current HQ level
+   * @returns {number} number of slots (1 for single-instance buildings)
+   */
+  function getUnlockedSlots(building, hqLevel) {
+    const unlocks = MULTI_INSTANCE_UNLOCKS[building];
+    if (!unlocks) return 1;
+    let slots = 0;
+    for (const unlock of unlocks) {
+      if (hqLevel >= unlock.hqLevel) slots = unlock.slots;
+    }
+    return slots;
   }
 
   /**
@@ -252,5 +278,5 @@
     return { scheduled, simulatedQueues, gemCost };
   }
 
-  window.BuildingCalc = { resolveUpgrades, sumResources, scheduleUpgrades, getTotalTime, buildDependencyTree, scheduleWithGemCost };
+  window.BuildingCalc = { resolveUpgrades, sumResources, scheduleUpgrades, getTotalTime, buildDependencyTree, scheduleWithGemCost, getUnlockedSlots };
 })();
