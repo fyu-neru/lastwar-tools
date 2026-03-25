@@ -232,6 +232,11 @@ const props = defineProps({
   lang: { type: String, default: 'en' },
 });
 
+const TARGET_BUILDING = 'Headquarters';
+const TARGET_LEVEL = 35;
+const POSITION_SPEED_BONUS = 20;
+const DATA_URL = '/lastwar-tools/building-data.json';
+
 // Recursive tree node component
 const TreeNode = defineComponent({
   name: 'TreeNode',
@@ -373,6 +378,7 @@ const labels = computed(() => labelMap[props.lang] || labelMap.en);
 
 const buildingData = ref(null);
 const dataLoaded = ref(false);
+const levelOptionsCache = {};
 const currentLevels = reactive({});
 const steps = ref([]);
 const totalTime = ref(0);
@@ -389,6 +395,8 @@ const numQueues = ref(2);
 const vipLevel = ref(0);
 const hasPosition = ref(false);
 const activeQueue = ref(null);
+
+const vipSpeed = computed(() => VIP_BUILD_SPEED[vipLevel.value] || 0);
 
 // When numQueues=1, we simulate with 2 queues — show both queue tabs
 const displayQueues = computed(() => simulatedQueues.value);
@@ -428,7 +436,7 @@ function getMultiInstanceSlots(building) {
 
 onMounted(async () => {
   try {
-    const resp = await fetch('/lastwar-tools/building-data.json');
+    const resp = await fetch(DATA_URL);
     buildingData.value = await resp.json();
     // Initialize all buildings to 0
     for (const group of Object.values(BUILDING_GROUPS)) {
@@ -445,18 +453,17 @@ onMounted(async () => {
       }
     }
     dataLoaded.value = true;
+    for (const [name, bdata] of Object.entries(buildingData.value.buildings)) {
+      const maxLevel = Math.max(...Object.keys(bdata.levels).map(Number));
+      levelOptionsCache[name] = Array.from({ length: maxLevel + 1 }, (_, i) => i);
+    }
   } catch (e) {
     console.error('Failed to load building data', e);
   }
 });
 
 function levelOptions(building) {
-  const data = buildingData.value?.buildings?.[building];
-  if (!data) return [0];
-  const maxLevel = Math.max(...Object.keys(data.levels).map(Number));
-  const opts = [];
-  for (let i = 0; i <= maxLevel; i++) opts.push(i);
-  return opts;
+  return levelOptionsCache[building] || [0];
 }
 
 function displayName(building) {
@@ -490,16 +497,15 @@ function calculate() {
 
   const resolved = window.BuildingCalc.resolveUpgrades(
     buildingData.value,
-    'Headquarters',
-    35,
+    TARGET_BUILDING,
+    TARGET_LEVEL,
     levelsForCalc
   );
 
   const summary = window.BuildingCalc.sumResources(resolved);
 
-  // Speed bonus with position
-  const speedWithPosition = VIP_BUILD_SPEED[vipLevel.value] + 20;
-  const speedWithoutPosition = VIP_BUILD_SPEED[vipLevel.value];
+  const speedWithPosition = vipSpeed.value + POSITION_SPEED_BONUS;
+  const speedWithoutPosition = vipSpeed.value;
   const currentSpeed = hasPosition.value ? speedWithPosition : speedWithoutPosition;
 
   // Schedule with current settings (uses scheduleWithGemCost for 1-queue gem cost annotation)
@@ -534,8 +540,8 @@ function calculate() {
   // Build dependency tree
   dependencyTree.value = window.BuildingCalc.buildDependencyTree(
     buildingData.value,
-    'Headquarters',
-    35,
+    TARGET_BUILDING,
+    TARGET_LEVEL,
     levelsForCalc
   );
 }

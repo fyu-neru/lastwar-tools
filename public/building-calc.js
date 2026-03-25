@@ -4,6 +4,9 @@
  */
 
 (function () {
+  const GEM_RENTAL_BLOCK_SECONDS = 7200; // 2-hour rental block
+  const GEM_COST_PER_BLOCK = 200;        // gems per rental
+
   /**
    * Resolve all required upgrades to reach targetBuilding at targetLevel,
    * given the player's current building levels.
@@ -114,14 +117,13 @@
    * }>}
    */
   function scheduleUpgrades(upgrades, numQueues, speedBonusPct = 0) {
-    // Initialize queue finish times
     const queueFreeAt = new Array(numQueues).fill(0);
     const scheduled = [];
+    const speedDivisor = 1 + speedBonusPct / 100;
 
     for (let step = 0; step < upgrades.length; step++) {
       const upgrade = upgrades[step];
 
-      // Find the queue that will be free earliest
       let earliestQueue = 0;
       let earliestTime = queueFreeAt[0];
       for (let i = 1; i < numQueues; i++) {
@@ -131,18 +133,13 @@
         }
       }
 
-      // Calculate actual build time after speed bonus
-      const actualBuildTime = Math.round(
-        upgrade.buildTime / (1 + speedBonusPct / 100)
-      );
+      const actualBuildTime = Math.round(upgrade.buildTime / speedDivisor);
 
       const startTime = queueFreeAt[earliestQueue];
       const endTime = startTime + actualBuildTime;
 
-      // Update queue free time
       queueFreeAt[earliestQueue] = endTime;
 
-      // Add to scheduled list
       scheduled.push({
         step,
         building: upgrade.building,
@@ -244,12 +241,11 @@
 
     let gemCost = 0;
     if (numQueues === 1) {
-      // Find how long queue 1 (the rented queue) is occupied
       const queue1Tasks = scheduled.filter(s => s.queue === 1);
       if (queue1Tasks.length > 0) {
         const maxQueue1Time = Math.max(...queue1Tasks.map(s => s.endTime));
-        const rentalBlocks = Math.ceil(maxQueue1Time / 7200);
-        gemCost = rentalBlocks * 200;
+        const rentalBlocks = Math.ceil(maxQueue1Time / GEM_RENTAL_BLOCK_SECONDS);
+        gemCost = rentalBlocks * GEM_COST_PER_BLOCK;
       }
     }
 
